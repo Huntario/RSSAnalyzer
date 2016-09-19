@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<head>
+	<title>RSS Analyzer</title>
+	<meta charset="utf-8">
+
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="tonieStyle.css">
+</head>
+<body>
+	<!-- holds all content -->
+	<div class="container-fluid">
+		<!-- jumbotron/header -->
+		<div class="jumbotron">
+  			<h1 class="text-center">Watson Tone Analyzer</h1>
+  			<p class="text-center">Analyze the tone of RSS News Feeds</p>
+  		</div>
+  		<!-- News buttons -->
+  		 <button data-link="http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk">BBC World [TEST BUTTON]</button>
+
+
+  		 		<!-- News buttons -->
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">
+  			<div class="btn-group" role="group">
+    			<button type="button" class="btn btn-primary btn-lg" data-link="http://rss.cnn.com/rss/cnn_topstories.rss">CNN</button>
+  			</div>
+  			<div class="btn-group" role="group">
+    			<button type="button" class="btn btn-primary btn-lg" data-link="http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk">BBC</button>
+  			</div>
+  			<div class="btn-group" role="group">
+    			<button type="button" class="btn btn-primary btn-lg" data-link="http://feeds.foxnews.com/foxnews/latest">FOX</button>
+  			</div>
+  			<div class="btn-group" role="group">
+    			<button type="button" class="btn btn-primary btn-lg" data-link="http://feeds.washingtonpost.com/rss/world">WA Post</button>
+  			</div>
+  			<div class="btn-group" role="group">
+    			<button type="button" class="btn btn-primary btn-lg" data-link="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">NY Times</button>
+  			</div>
+		</div>
+  		<div class="btn-group" data-toggle="buttons" data-link="http://rss.cnn.com/rss/cnn_topstories.rss">
+  		
+		</div>
+		<!-- watson output -->
+		<div>
+			<div id="emotion">
+				<p>Emotion</p>
+			</div>
+			<div id="languageStyle">
+				<p>Language Style</p>
+			</div>
+			<div id="socialTendencies">
+				<p>Social Tendencies</p>
+			</div>
+		</div>
+	</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<!-- our JS -->
+<script type="text/javascript" src="assets/js/rssanalyzer.js"></script>
+</body>
+</html>
