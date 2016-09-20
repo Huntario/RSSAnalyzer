@@ -51,8 +51,6 @@ items: [
  "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=The+happy+green+cat+jumped+high.+The+mean+man+was+angry+and+depressed.&apikey=ba67a893-398a-4cdb-ac52-57764039436f"
  
 returns
-
-
 {
   "positive": [
     {
@@ -81,3 +79,17 @@ returns
     "score": -0.20260234747518735
   }
 }
+
+
+When the app writes to firbase, this is what it writes:
+
+-KS5DmdBg9LUXnBIA35T (this is the unique ID created by Firebase, it creates a unique ID for each entry)
+    query
+        score: -0.26330603303881905
+        sentiment: "negative"
+        source:"http://rss.nytimes.com/services/xml/rss/nyt/Wor..."
+        text
+            0: "Obama, at the U.N., Cites Iraq Gains and Urges ..."
+            1: "Aid Convoy Is Hit in Syria as Cease-Fire Falter..."
+            2: "Kinshasa, Congo, Is Locked Down as Protests Eru..."
+            etc.
