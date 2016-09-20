@@ -1,7 +1,7 @@
 README.txt
 
 1 #### RSS to JSON URL ####
-2 #### IBM WATSON ####
+2 #### HPE Sentiment Anlaysis ####
 
 
 1 #### RSS to JSON URL ####
@@ -9,8 +9,6 @@ README.txt
 - http://rss2json.com/api.json
 
 - rss feed you want to convert to json, the url need to be escaped (eg. https%3A%2F%2Fnews.ycombinator.com%2Frss )
-
-
 
 http://rss2json.com/api.json?rss_url=https%3A%2F%2Fnews.ycombinator.com%2Frss
 
@@ -27,9 +25,7 @@ feed: {
 	description: "Links for the intellectually curious, ranked by readers.",
 	image: ""
 	},
-
 items: [
-
 	{
 	title: "Ultrasound Haptic Technology Could Revolutionise Man-Machine Interaction",
 	link: "https://www.theengineer.co.uk/ultrasound-haptic-technology-could-revolutionise-man-machine-interaction/",
@@ -44,8 +40,40 @@ items: [
 }, etc 
 
 
-
-2 #### HPE Sentiment Analysis ####
+2 #### HEP Sentiment Analysis ####
 
 IBM Watson takes some text as an indput and outputs the followsing JSON
 
+ "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=The+happy+green+cat+jumped+high.+The+mean+man+was+angry+and+depressed.&apikey=ba67a893-398a-4cdb-ac52-57764039436f"
+ 
+returns
+
+
+{
+  "positive": [
+    {
+      "sentiment": "The happy green cat",
+      "topic": null,
+      "score": 0.5734506634410159,
+      "original_text": "The happy green cat",
+      "original_length": 19,
+      "normalized_text": "The happy green cat",
+      "normalized_length": 19
+    }
+  ],
+  "negative": [
+    {
+      "sentiment": "angry and depressed",
+      "topic": "The mean man",
+      "score": -0.9786553583913906,
+      "original_text": "The mean man was angry and depressed",
+      "original_length": 36,
+      "normalized_text": "The mean man was angry and depressed",
+      "normalized_length": 36
+    }
+  ],
+  "aggregate": {
+    "sentiment": "negative",
+    "score": -0.20260234747518735
+  }
+}
