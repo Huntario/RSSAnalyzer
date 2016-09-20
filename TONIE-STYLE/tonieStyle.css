@@ -1,0 +1,11 @@
+.jumbotron{
+	background-image: linear-gradient(45deg, #6a1b9a, #f9a825);
+}
+
+.text-center{
+	color: #e8f5e9 !important;
+}
+
+body{
+	background-image: url(stardust_@2X.png);
+}
