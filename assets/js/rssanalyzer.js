@@ -5,9 +5,11 @@ $('.btn btn-primary').on('click', function () {
 
 //Upon clicking the "analyze" button, we get the chosen RSS feedl link and send it it RSStoJSON
 
+
+//HERE IS RSS TO JSON CONVERTER
 $('button').on('click', function() {
 
-		var testLink = "https%3A%2F%2Fnews.ycombinator.com%2Frss"
+        var testLink = "https%3A%2F%2Fnews.ycombinator.com%2Frss"
         var rsslink = $(this).data('link');
         //var queryURL = "http://rss2json.com/api.json?rss_url=" + "http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk" ;
         var queryURL = "http://rss2json.com/api.json?rss_url=" + rsslink;
@@ -18,40 +20,28 @@ $('button').on('click', function() {
             })
             .done(function(response) {
 
-            	console.log(response);
-
-                // var results = response.data;
-                // for (var i = 0; i < results.length; i++) {
-                //     var gifDiv = $('<div class="item">')
-                //     var rating = results[i].rating;
-                //     var p = $('<p>').text("Rating: " + rating);
-                //     var personImage = $('<img>');
-                //     personImage.attr('src', results[i].images.fixed_height.url);
-                //     gifDiv.append(p)
-                //     gifDiv.append(personImage)
-                //     $('#gifsAppearHere').prepend(gifDiv);
+                console.log(response);
                 })
-            });
+        });
 
-//We send the JSON data of the rss feed to the IBM Watson tone analyzer
+//HERE WE NEED TO TAKE THE RETURNED INFO
+//PARCE INFO TO BE ANALYZED AND SET TO VARIABLE
+//PASS INFO INTO THE ANALYZER
 
 
-	var watson = require('watson-developer-cloud');
+//HERE IS THE ANALYZER FROM HEWELET PACKARD ENT
+$('button').on('click', function() {
 
-		var tone_analyzer = watson.tone_analyzer({
-		  username: '4e91cdcb-8fa7-4b46-8827-b729e36a1136',
-		  password: 'n5RMX0VpNUzh',
-		  version: 'v3',
-		  version_date: '2016-05-19 '
-		});
+        var rsslink = $(this).data('link');
+        //var queryURL = "http://rss2json.com/api.json?rss_url=" + "http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk" ;
+        var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=http%3A%2F%2Fwww.cnn.com&apikey=ba67a893-398a-4cdb-ac52-57764039436f";
+   
+        $.ajax({
+                url: queryURL,
+                method: 'GET'
+            })
+            .done(function(response) {
 
-		tone_analyzer.tone({ text: 'A word is dead when it is said, some say. Emily Dickinson' },
-		  function(err, tone) {
-		    if (err)
-		      console.log(err);
-		    else
-		      console.log(JSON.stringify(tone, null, 2));
-		});
-
-//We return the analysis from Watson in JSON
-//Put the analysis on sreeen
+                console.log(response);
+                })
+        });

@@ -42,6 +42,7 @@ items: [
 
 2 #### HEP Sentiment Analysis ####
 
+IBM Watson takes some text as an indput and outputs the followsing JSON
 
  "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=The+happy+green+cat+jumped+high.+The+mean+man+was+angry+and+depressed.&apikey=ba67a893-398a-4cdb-ac52-57764039436f"
  
@@ -76,5 +77,3 @@ returns
     "score": -0.20260234747518735
   }
 }
-
-
