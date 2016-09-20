@@ -25,12 +25,9 @@ $('button').on('click', function() {
                 }
                 })
         });
-
 //HERE WE NEED TO TAKE THE RETURNED INFO
 //PARCE INFO TO BE ANALYZED AND SET TO VARIABLE
 //PASS INFO INTO THE ANALYZER
-
-
 //HERE IS THE ANALYZER FROM HEWELET PACKARD ENT
 function analysis(l) {
 
@@ -42,6 +39,6 @@ function analysis(l) {
             })
             .done(function(response) {
                 console.log ("titleTex = " + titleText)
-                console.log(response);
+                console.log("response");
                 })
         };
