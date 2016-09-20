@@ -1,17 +1,29 @@
 README.md
 
+GOALS
+X - 01.Must uses at least two APIs
+X - 02.Must use AJAX to pull data
+X - 03.Must utilize at least one new library or technology that we haven’t discussed 
+04.Must have a polished frontend / UI 
+X - 05.Must meet good quality coding standards (indentation, scoping, naming)
+X - 06.Must NOT use alerts, confirms, or prompts (look into modals!)  
+X - 07.Must have some sort of repeating element (table, columns, etc)
+X - 08.Must use Bootstrap or Alternative CSS Framework 
+X - 09.Must be Deployed (Heroku or Firebase)
+10.Must have User Input Validation
+
+Bonus 
+X - 11.Utilize Firebase for Persistent Data Storage (Consider this basically a requirement).
+12.Mobile Responsive
+13.Use an alternative CSS framework like Material
+
+
 AGENDA
-1. Add table that shows last 10 searches - NEWS OUTLET - NEGATIVE/POSITIVE - SCORE
-2. Use Firebase to make table persistent
-3. add space to insert own RSS link
-4. AND validate it is an RSS link
-5. Deploy site to Heroku
-6. Clean up code
-7. Look at UI options
+1. add space to insert own RSS link
+2. validate it is an RSS link
+3. clean up code
+4. Look at UI options
 
-
-1 #### RSS to JSON URL ####
-2 #### HPE Sentiment Anlaysis ####
 
 1 #### RSS to JSON URL ####
 
@@ -80,6 +92,8 @@ returns
   }
 }
 
+
+3 #### Firebase Info ####
 
 When the app writes to firbase, this is what it writes:
 

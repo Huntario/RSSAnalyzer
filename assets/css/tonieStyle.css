@@ -9,3 +9,8 @@
 body{
 	background-image: url(../images/stardust_@2X.png);
 }
+
+.btn-group .btn-group-justified{
+
+	margin-top:40%;
+} 
