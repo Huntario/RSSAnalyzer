@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RSS Analyzer</title>
+	<meta charset="utf-8">
+	
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
+	<link rel="stylesheet" type="text/css" href="tonieStyle.css">
+</head>
+<body>
+	<!-- holds all content -->
+	<div class="jumbotron jumbotron-fluid">
+		<!-- jumbotron/header -->
+		<div class="container">
+  			<h1 class="text-center">Sentiment Analyzer</h1>
+  			<p class="text-center">Analyze the sentiment of RSS News Feeds</p>
+  		</div>
+  	</div>
+  		<!-- News buttons -->
+		<div class="flex-center">
+			<button type="button" class="btn btn-purple btn-lg col-md-2">CNN</button>
+			<button type="button" class="btn btn-purple btn-lg col-md-2">BBC</button>
+			<button type="button" class="btn btn-purple btn-lg col-md-2">FOX</button>
+			<button type="button" class="btn btn-purple btn-lg col-md-2">WA Post</button>
+			<button type="button" class="btn btn-purple btn-lg col-md-2">NY Times</button>
+		</div>
+
+		<!-- analyze button -->
+		<div class="flex-center">
+			<button type="button" id="analyzeButton" data-loading-text="Analyzing..." class="btn btn-orange btn-lg" autocomplete="off">Analyze</button>
+		</div>
+
+		<!-- watson output, to load after user clicks analyze button-->
+		<!-- <div class="panel panel-default">
+  			<div class="panel-heading">
+    			<h3 class="panel-title">Emotion</h3>
+  			</div>
+  			<div class="panel-body">
+    			Watson Emotion Output
+  			</div>
+		</div>
+		<div class="panel panel-default">
+  			<div class="panel-heading">
+    			<h3 class="panel-title">Language Style</h3>
+  			</div>
+  			<div class="panel-body">
+    			Watson Language Style Output
+  			</div>
+		</div>
+		<div class="panel panel-default">
+  			<div class="panel-heading">
+    			<h3 class="panel-title">Social Tendencies</h3>
+  			</div>
+  			<div class="panel-body">
+    			Watson Social Tendencies Output
+  			</div>
+		</div> -->
+
+	<!-- jQuery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+
+	<!-- our JS -->
+	<script type="text/javascript" src="tonieJS.js"></script>
+</body>
+</html>
