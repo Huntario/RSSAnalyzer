@@ -18,6 +18,10 @@ X - 11.Utilize Firebase for Persistent Data Storage (Consider this basically a r
 13.Use an alternative CSS framework like Material
 
 
+04.polish UI 
+12.Mobile Responsive
+13.Use an alternative CSS framework like Material
+
 AGENDA
 1. add space to insert own RSS link
 2. validate it is an RSS link
