@@ -79,6 +79,6 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     console.log(sentiment);
     console.log(source);
     // Add each train's data into the table
-    $("#employeeTable > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td></tr>");
+    $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td></tr>");
 
 });
