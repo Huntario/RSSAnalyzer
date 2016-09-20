@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-
 <script src="https://code.jquery.com/jquery.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
 <head>
 	<title>RSS Analyzer</title>
 	<meta charset="utf-8">
@@ -14,8 +14,8 @@
 	<div class="container-fluid">
 		<!-- jumbotron/header -->
 		<div class="jumbotron">
-  			<h1 class="text-center">Watson Tone Analyzer</h1>
-  			<p class="text-center">Analyze the tone of RSS News Feeds</p>
+  			<h1 class="text-center">Sentiment Analyzer</h1>
+  			<p class="text-center">Analyze the sentiment of RSS News Feeds</p>
   		</div>
  
   		<!-- News buttons -->
@@ -39,18 +39,26 @@
   		<div class="btn-group" data-toggle="buttons" data-link="http://rss.cnn.com/rss/cnn_topstories.rss">
   		
 		</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title"><strong>Recent Scores</strong></h3>
+				</div>
+				<div class="panel-body">
+					<table class="table table-hover" id='employeeTable'>
+						<thead>
+							<tr>
+								<th>Negative/Positive Score</th>
+								<th>Overall Sentiment</th>
+								<th>Source</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
+					</table>
+				</div>
+			</div>
 		<!-- watson output -->
-		<div>
-			<div id="emotion">
-				<p>Emotion</p>
-			</div>
-			<div id="languageStyle">
-				<p>Language Style</p>
-			</div>
-			<div id="socialTendencies">
-				<p>Social Tendencies</p>
-			</div>
-		</div>
 	</div>
 
 <!-- jQuery -->
