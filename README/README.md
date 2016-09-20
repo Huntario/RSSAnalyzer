@@ -1,0 +1,95 @@
+README.md
+
+AGENDA
+1. Add table that shows last 10 searches - NEWS OUTLET - NEGATIVE/POSITIVE - SCORE
+2. Use Firebase to make table persistent
+3. add space to insert own RSS link
+4. AND validate it is an RSS link
+5. Deploy site to Heroku
+6. Clean up code
+7. Look at UI options
+
+
+1 #### RSS to JSON URL ####
+2 #### HPE Sentiment Anlaysis ####
+
+1 #### RSS to JSON URL ####
+
+- http://rss2json.com/api.json
+
+- rss feed you want to convert to json, the url need to be escaped (eg. https%3A%2F%2Fnews.ycombinator.com%2Frss )
+http://rss2json.com/api.json?rss_url=https%3A%2F%2Fnews.ycombinator.com%2Frss
+RETURNS
+
+{
+status: "ok",
+
+feed: {
+	title: "Hacker News",
+	link: "https://news.ycombinator.com/",
+	author: "",
+	description: "Links for the intellectually curious, ranked by readers.",
+	image: ""
+	},
+items: [
+	{
+	title: "Ultrasound Haptic Technology Could Revolutionise Man-Machine Interaction",
+	link: "https://www.theengineer.co.uk/ultrasound-haptic-technology-could-revolutionise-man-machine-interaction/",
+	guid: "https://www.theengineer.co.uk/ultrasound-haptic-technology-could-revolutionise-man-machine-interaction/",
+	pubDate: "Sat, 17 Sep 2016 15:28:17 +0000",
+	categories: [ ],
+	author: "",
+	thumbnail: "",
+	description: "<a href="https://news.ycombinator.com/item?id=12520873">Comments</a>",
+	content: "<a href="https://news.ycombinator.com/item?id=12520873">Comments</a>"
+
+}, etc 
+
+
+2 #### HEP Sentiment Analysis ####
+
+ "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=The+happy+green+cat+jumped+high.+The+mean+man+was+angry+and+depressed.&apikey=ba67a893-398a-4cdb-ac52-57764039436f"
+ 
+returns
+{
+  "positive": [
+    {
+      "sentiment": "The happy green cat",
+      "topic": null,
+      "score": 0.5734506634410159,
+      "original_text": "The happy green cat",
+      "original_length": 19,
+      "normalized_text": "The happy green cat",
+      "normalized_length": 19
+    }
+  ],
+  "negative": [
+    {
+      "sentiment": "angry and depressed",
+      "topic": "The mean man",
+      "score": -0.9786553583913906,
+      "original_text": "The mean man was angry and depressed",
+      "original_length": 36,
+      "normalized_text": "The mean man was angry and depressed",
+      "normalized_length": 36
+    }
+  ],
+  "aggregate": {
+    "sentiment": "negative",
+    "score": -0.20260234747518735
+  }
+}
+
+
+When the app writes to firbase, this is what it writes:
+
+-KS5DmdBg9LUXnBIA35T (this is the unique ID created by Firebase, it creates a unique ID for each entry)
+    query
+        score: -0.26330603303881905
+        sentiment: "negative"
+        source:"http://rss.nytimes.com/services/xml/rss/nyt/Wor..."
+        text
+            0: "Obama, at the U.N., Cites Iraq Gains and Urges ..."
+            1: "Aid Convoy Is Hit in Syria as Cease-Fire Falter..."
+            2: "Kinshasa, Congo, Is Locked Down as Protests Eru..."
+            etc.
