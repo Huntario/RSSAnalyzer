@@ -18,27 +18,31 @@ $('button').on('click', function() {
             })
             .done(function(response) {
                 console.log(response);
+
+                var textAnalyze = []
                 for (var i = 0; i < response.items.length; i++){
                 var l = response.items[i].title
-                analysis(l); 
-
+                textAnalyze.push(l)
+                
                 }
+                analysis(textAnalyze); 
+                
                 })
         });
 //HERE WE NEED TO TAKE THE RETURNED INFO
 //PARCE INFO TO BE ANALYZED AND SET TO VARIABLE
 //PASS INFO INTO THE ANALYZER
 //HERE IS THE ANALYZER FROM HEWELET PACKARD ENT
-function analysis(l) {
+function analysis(p) {
 
-        var titleText = l.split(' ').join('+');
-        var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=http%3A%2F%2F" + titleText + "&apikey=ba67a893-398a-4cdb-ac52-57764039436f";
+        //var titleText = l.split(' ').join('+');
+        var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=http%3A%2F%2F" + p + "&apikey=ba67a893-398a-4cdb-ac52-57764039436f";
         $.ajax({
                 url: queryURL,
                 method: 'GET'
             })
             .done(function(response) {
-                console.log ("titleTex = " + titleText)
-                console.log("response");
+                console.log ("p = " + p)
+                console.log(response);
                 })
         };
