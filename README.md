@@ -1,19 +1,25 @@
-README.txt
+README.md
+
+AGENDA
+1. Add table that shows last 10 searches - NEWS OUTLET - NEGATIVE/POSITIVE - SCORE
+2. Use Firebase to make table persistent
+3. add space to insert own RSS link
+4. AND validate it is an RSS link
+5. Deploy site to Heroku
+6. Clean up code
+7. Look at UI options
+
 
 1 #### RSS to JSON URL ####
 2 #### HPE Sentiment Anlaysis ####
-
 
 1 #### RSS to JSON URL ####
 
 - http://rss2json.com/api.json
 
 - rss feed you want to convert to json, the url need to be escaped (eg. https%3A%2F%2Fnews.ycombinator.com%2Frss )
-
 http://rss2json.com/api.json?rss_url=https%3A%2F%2Fnews.ycombinator.com%2Frss
-
 RETURNS
-
 
 {
 status: "ok",
@@ -41,8 +47,6 @@ items: [
 
 
 2 #### HEP Sentiment Analysis ####
-
-IBM Watson takes some text as an indput and outputs the followsing JSON
 
  "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=The+happy+green+cat+jumped+high.+The+mean+man+was+angry+and+depressed.&apikey=ba67a893-398a-4cdb-ac52-57764039436f"
  
