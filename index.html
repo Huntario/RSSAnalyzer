@@ -4,6 +4,8 @@
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
 <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.15.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.15.0/locales.min.js"></script>
 <head>
 	<title>RSS Analyzer</title>
 	<meta charset="utf-8">
@@ -56,7 +58,7 @@
   			</div>
 
   			<div class="btn-group" role="group">
-    			<button type="button" class="btn btn-primary btn-lg" data-link="http://www.reddit.com/rss">Reddit Front Page</button>
+    			<button type="button" class="btn btn-primary btn-lg" data-link="http://www.reddit.com/.rss">Reddit Front Page</button>
   			</div>
   		</div>
 
@@ -79,7 +81,7 @@
           <button type="submit" class="btn btn-default">Submit</button>
         </div>
       </form>
-      </div>
+      </div>  </div>
 
       <div class="panel panel-primary">
         <div class="panel-heading">
@@ -87,7 +89,7 @@
         </div>
         <div class="panel-body">
          <div class="ct-chart"></div>
-      </div>
+      </div>  </div>
 
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -97,9 +99,10 @@
 					<table class="table table-hover" id='queryTables'>
 						<thead>
 							<tr>
-								<th>Negative/Positive Score</th>
-								<th>Overall Sentiment</th>
+								<th>Score</th>
+								<th>Sentiment</th>
 								<th>Source</th>
+                <th>Time</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -109,7 +112,7 @@
 				</div>
 			</div>
 		<!-- watson output -->
-	</div>
+
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery.js"></script>

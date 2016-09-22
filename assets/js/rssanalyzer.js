@@ -23,15 +23,11 @@ function analysis(analyzed, link) {
                     text: analyzed,
                     source: link,
                     score: response.aggregate.score,
-                    sentiment: response.aggregate.sentiment,    
+                    sentiment: response.aggregate.sentiment,
+                    time: moment().format('YYYY-MM-DD h:mm:ss a'),    
                     };
-                console.log(response)
-                console.log ("This got analyzed = " + analyzed)
-                console.log("query.source = " + query.source);
-                console.log("query.text = " + query.text);
-                console.log("query.score = " + query.score)
-                console.log("query.score = " + query.sentiment)
-                console.log(query)
+                console.log("query url " + queryURL);
+                console.log("analyzed" + analyzed);
                 dbinsert(query)
                 })
         };
@@ -59,26 +55,28 @@ $('button').on('click', function() {
             .done(function(response) {
                 console.log(response);
                 var textAnalyzed = []
-                for (var i = 0; i < response.items.length; i++){
+                for (i = 0; i < response.items.length; i++){
                     var l = response.items[i].title
+                    //strip out "&" , Q&amp" ,or "#038" from analysis it breaks the api (looks for key)
+                    l = l.replace('Q&amp;','');
+                    l = l.replace('#038;','');
+                    l = l.replace('&','');
                     textAnalyzed.push(l)
                 }
                 analysis(textAnalyzed, rsslink);
+                console.log("text analyzed " + textAnalyzed);
                 })
         });
 
 //Get data from database to show last 10 analysees
 database.ref().on("child_added", function(childSnapshot, prevChildKey){
-    console.log(childSnapshot.val());
     // Store everything into a variable.
     var score = childSnapshot.val().query.score;
     var sentiment = childSnapshot.val().query.sentiment;
     var source = childSnapshot.val().query.source;
-    console.log(score);
-    console.log(sentiment);
-    console.log(source);
+    var time = childSnapshot.val().query.time;
     // Add each train's data into the table
-    $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td></tr>");
+    $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>");
 
 });
 
