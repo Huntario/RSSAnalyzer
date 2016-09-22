@@ -36,7 +36,6 @@ function analysis(analyzed, link) {
                 })
         };
 function dbinsert (query){
-
     database.ref().push({
         query: query
     });
@@ -82,3 +81,4 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td></tr>");
 
 });
+
