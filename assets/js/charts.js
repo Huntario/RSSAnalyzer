@@ -2,11 +2,12 @@
 var data = {
   labels: ['Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6'],
   series: [
-    [.43, .56, .33, .44, .12, .10],
+    [.43, .56, .33, .44, .12, 1],
     [-.43, .56, -.33, -.44, -.12, -.10],
-    [.40, .22, .12, .22, .44, .54]
+    [.40, .22, .12, .22, .44, -1]
   ]
 };
+
 
 // We are setting a few options for our chart and override the defaults
 var options = {
@@ -19,7 +20,10 @@ var options = {
     // We can disable the grid for this axis
     showGrid: false,
     // and also don't show the label
-    showLabel: false
+    showLabel: false,
+
+    width: 300,
+  	height: 200
   },
   // Y-Axis specific configuration
   axisY: {
