@@ -1,5 +1,15 @@
 
+var sourcesList = [];
+database.ref().on("child_added", function(childSnapshot, prevChildKey){
+    // Store everything into a variable.
+    var source = childSnapshot.val().query;
+    sourcesList.push(source);
+    sourcesList.sort();  
+});
+console.log (sourcesList);
+
 var data = {
+
   labels: ['Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6'],
   series: [
     [.43, .56, .33, .44, .12, 1, -.5],

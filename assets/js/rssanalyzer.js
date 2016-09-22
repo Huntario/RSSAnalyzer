@@ -19,10 +19,13 @@ function analysis(analyzed, link) {
                 method: 'GET'
             })
             .done(function(response) {
+                
+            var score = response.aggregate.score;
+            score = Math.round(score * 10000) / 10000;    
                 var query = {
                     text: analyzed,
                     source: link,
-                    score: response.aggregate.score,
+                    score: score,
                     sentiment: response.aggregate.sentiment,
                     time: moment().format('YYYY-MM-DD h:mm:ss a'),    
                     };
@@ -75,7 +78,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     var sentiment = childSnapshot.val().query.sentiment;
     var source = childSnapshot.val().query.source;
     var time = childSnapshot.val().query.time;
-    // Add each train's data into the table
+    // Add into the table
     $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>");
 
 });
