@@ -14,3 +14,13 @@ body{
 
 	margin-top:40%;
 } 
+
+#chart1 {
+
+	background-color: white;
+}
+
+.panel-title {
+
+	text-align: center;
+}

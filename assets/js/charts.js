@@ -8,14 +8,15 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
 });
 console.log (sourcesList);
 
-var data = {
+var redditScores =     [.43, .56, .33, .44, .12, 1, -.5]
+var wapostScores =     [-.43, .56, -.33, -.44, -.12, -.10, -1]
+var cnnScores = [.40, .22, .12, .22, .44, -1, -.10]
+var foxScores = [.34, .56, .67, .45, .40, -.66, .10]
+var bbcScores = [-.20, -.92, -.42, -.62, -.54, -1, -.75]
 
+var data = {
   labels: ['Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6'],
-  series: [
-    [.43, .56, .33, .44, .12, 1, -.5],
-    [-.43, .56, -.33, -.44, -.12, -.10, -1],
-    [.40, .22, .12, .22, .44, -1, -.10]
-  ]
+  series: [redditScores, wapostScores, cnnScores, foxScores, bbcScores ]
 };
 
 var responsiveOptions = [
@@ -51,11 +52,11 @@ var options = {
 	  // If low is specified then the axis will display values explicitly down to this value and the computed minimum from the data is ignored
 	  low: -1,
 	  // This option will be used when finding the right scale division settings. The amount of ticks on the scale will be determined so that as many ticks as possible will be displayed, while not violating this minimum required space (in pixel).
-	  scaleMinSpace: 20,
+	  scaleMinSpace: 100,
 	  // Can be set to true or false. If set to true, the scale will be generated with whole numbers only.
 	  onlyInteger: true,
 	  // The reference value can be used to make sure that this value will always be on the chart. This is especially useful on bipolar charts where the bipolar center always needs to be part of the chart.
-	  referenceValue: 5,
+	  referenceValue: 1100,
 
 
   axisX: {
@@ -64,9 +65,6 @@ var options = {
     },
 
 
-
-    width: 700,
-  	height: 200,
  
   // Y-Axis specific configuration
   axisY: {
@@ -82,4 +80,4 @@ var options = {
 };
 
 // All you need to do is pass your configuration as third parameter to the chart function
-new Chartist.Line('.ct-chart', data, null, responsiveOptions);
+new Chartist.Line('.ct-chart', data, options);
