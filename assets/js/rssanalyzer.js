@@ -41,6 +41,8 @@ function dbinsert (query){
     // Don't refresh the page!
     return false;
     };
+
+    
 // Main
 $('.btn btn-primary').on('click', function () {
     $(this).button('toggle') // button text will be "finished!"
@@ -64,6 +66,7 @@ $('button').on('click', function() {
                     l = l.replace('Q&amp;','');
                     l = l.replace('#038;','');
                     l = l.replace('&','');
+                    l = l.replace('#','');
                     textAnalyzed.push(l)
                 }
                 analysis(textAnalyzed, rsslink);
