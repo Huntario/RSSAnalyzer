@@ -1,23 +1,53 @@
+var nytScores = [];
+var wapScores = [];
+var times = [];
 
-var sourcesList = [];
+
 database.ref().on("child_added", function(childSnapshot, prevChildKey){
     // Store everything into a variable.
-    var source = childSnapshot.val().query;
-    sourcesList.push(source);
-    sourcesList.sort();  
-});
-console.log (sourcesList);
+    var score = childSnapshot.val().query.score;
+    var sentiment = childSnapshot.val().query.sentiment;
+    var source = childSnapshot.val().query.source;
+    var time = childSnapshot.val().query.time;
 
-var redditScores =     [.43, .56, .33, .44, .12, 1, -.5]
-var wapostScores =     [-.43, .56, -.33, -.44, -.12, -.10, -1]
-var cnnScores = [.40, .22, .12, .22, .44, -1, -.10]
-var foxScores = [.34, .56, .67, .45, .40, -.66, .10]
-var bbcScores = [-.20, -.92, -.42, -.62, -.54, -1, -.75]
-var horizLabels = ['Week1', 'Week2', 'Week3', 'Week4', 'Week5', 'Week6']
+    times.push("|");
+    if (source === "http://rss.nytimes.com/services/xml/rss/nyt/World.xml"){   
+    //nytScores.push(score);
+    nytScores.push(score)
+    }
+    if (source === "http://feeds.washingtonpost.com/rss/world"){   
+    //nytScores.push(score);
+    wapScores.push(score)
+    }
+    source = "";
+
+    if (source === "http://feeds.washingtonpost.com/rss/world"){   
+    //nytScores.push(score);
+    wapScores.push(score)
+    }
+    source = "";
+
+});
+
+console.log(nytScores);
+console.log(wapScores);
+
+var nytScoreChart = nytScores;
+var wapScoreChart = wapScores;
+var nytScoreChart = nytScores;
+var nytScoreChart = nytScores;
+var nytScoreChart = nytScores;
+// var wapostScores =     [-.43, .56, -.33, -.44, -.12, -.10, -1]
+// var cnnScores = [.40, .22, .12, .22, .44, -1, -.10]
+// var foxScores = [.34, .56, .67, .45, .40, -.66, .10]
+// var bbcScores = [-.20, -.92, -.42, -.62, -.54, -1, -.75]
+
+
+var horizLabels = [];
 
 var data = {
   labels: horizLabels,
-  series: [redditScores, wapostScores, cnnScores, foxScores, bbcScores ]
+  series: [nytScoreChart, wapScoreChart ]
 };
 
 
@@ -25,13 +55,13 @@ var data = {
 var options = {
 
   width: '100%',
-  height: '400px',
+  height: '200px',
 
   showPoint: false,
   lineSmooth: true,
 	  high: 1,
 	  low: -1,
-	  scaleMinSpace: 5,
+	  scaleMinSpace: 0,
 	  onlyInteger: false,
 	  referenceValue: 0,
   axisX: {

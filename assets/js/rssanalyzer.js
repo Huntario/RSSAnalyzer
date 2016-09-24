@@ -10,6 +10,9 @@ var config = {
   };
   firebase.initializeApp(config);
 var database = firebase.database();
+
+    
+
 // Fucntions
 function analysis(analyzed, link) {
         //var titleText = l.split(' ').join('+');
@@ -72,6 +75,7 @@ $('button').on('click', function() {
                 }
                 analysis(textAnalyzed, rsslink);
                 console.log("text analyzed " + textAnalyzed);
+                
                 })
         });
 
