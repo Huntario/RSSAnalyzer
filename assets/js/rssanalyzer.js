@@ -63,6 +63,10 @@ $('button').on('click', function() {
             })
             .done(function(response) {
                 console.log(response);
+                if (response.status != 'ok') {
+                    console.log('Not a valid URL');
+                    // $('  ').append('Please enter a valid RSS link');
+                }
                 var textAnalyzed = []
                 for (var i = 0; i < response.items.length; i++){
                     var l = response.items[i].title

@@ -53,18 +53,13 @@
     			<button type="button" class="btn btn-primary btn-lg" data-link="https://www.reddit.com/.rss">Reddit Front Page</button>
   			</div>
   		</div>
-
-  		<!-- user input added by Jason -->
-  		<!-- see link below for refernce -->
-  		<!-- http://www.ietf.org/rfc/rfc3986.txt -->
-  		<!-- http://www.w3schools.com/tags/att_input_pattern.asp -->
-  		<!-- ([w|W]{3}\.) -->
+  		<!-- ^(https?://)?|([w|W]{3}\.) -->
   		<form class="form-inline">
   			<div class="form-group">
   				<label for="url">URL</label>
-  				<input type="url" pattern="^(https?://).+$" required class="form-control" id="urlInput">
+  				<input type="url" pattern="https?://.+$" required class="form-control" id="urlInput"/>
   				<button id="submit"
-  					type="button" class="btn btn-primary btn-lg">Submit</button>
+  				type="button" class="btn btn-primary btn-lg">Submit</button>
   			</div>
   		</form>
 
