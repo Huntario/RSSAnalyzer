@@ -9,7 +9,6 @@ var config = {
     messagingSenderId: "770518406701"
   };
   firebase.initializeApp(config);
-
 var database = firebase.database();
 
     
@@ -89,7 +88,7 @@ $('button').on('click', function() {
                 })
         });
 
-//Get data from database
+//Get data from database to show last 10 analysees
 database.ref().on("child_added", function(childSnapshot, prevChildKey){
     // Store everything into a variable.
     var score = childSnapshot.val().query.score;
@@ -98,8 +97,6 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     var time = childSnapshot.val().query.time;
     // Add into the table
     $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>");
-
-    
 
 });
 

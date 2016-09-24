@@ -11,6 +11,18 @@ var eccScores = [];
 var teeScores = [];
 var nytScores = [];
 var wapScores = [];
+var nytScoreChart = nytScores;
+var wapScoreChart = wapScores;
+var cnnScoreChart = cnnScores;
+var bbcScoreChart = bbcScores;
+var foxScoreChart = foxScores;
+var sagScoreChart = sagScores;
+var tgnScoreChart = tgnScores;
+var reuScoreChart = reuScores;
+var rumScoreChart = rumScores;
+var ftuScoreChart = ftuScores;
+var eccScoreChart = eccScores;
+var teeScoreChart = teeScores;
 
 database.ref().on("child_added", function(childSnapshot, prevChildKey){
     // Store everything into a variable.
@@ -53,38 +65,14 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     }
 });
 
-
-var nytScoreChart = nytScores;
-var wapScoreChart = wapScores;
-var cnnScoreChart = cnnScores;
-var bbcScoreChart = bbcScores;
-var foxScoreChart = foxScores;
-var sagScoreChart = sagScores;
-var tgnScoreChart = tgnScores;
-var reuScoreChart = reuScores;
-var rumScoreChart = rumScores;
-var ftuScoreChart = ftuScores;
-var eccScoreChart = eccScores;
-var teeScoreChart = teeScores;
-// var wapostScores =     [-.43, .56, -.33, -.44, -.12, -.10, -1]
-// var cnnScores = [.40, .22, .12, .22, .44, -1, -.10]
-// var foxScores = [.34, .56, .67, .45, .40, -.66, .10]
-// var bbcScores = [-.20, -.92, -.42, -.62, -.54, -1, -.75]
-
-
-
-
 var data = {
   series: [nytScoreChart,wapScoreChart,cnnScoreChart,bbcScoreChart,foxScoreChart,sagScoreChart,tgnScoreChart,teeScores]
 };
-
-
 // We are setting a few options for the chart and overriding the defaults
 var options = {
 
   width: '100%',
-  height: '200px',
-
+  height: '400px',
   showPoint: false,
   lineSmooth: true,
 	  high: 1,
@@ -103,7 +91,11 @@ var options = {
       return value;
     }
   }
+  
+
 };
 
 new Chartist.Line('.ct-chart', data, options);
+
+
 
