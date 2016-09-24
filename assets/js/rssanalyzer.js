@@ -44,17 +44,16 @@ function dbinsert (query){
     return false;
     };
 // Main
-/*$('.btn btn-primary').on('click', function () {
+$('.btn btn-primary').on('click', function () {
     console.log('HERE IS ' + this);
     $(this).button('toggle') // button text will be "finished!"
-  })*/
+  })
 //RSS TO JSON, then send to SentimentAPI, 
 //then create object for query 
 //and add to databse
 $('button').on('click', function() {
         var userInput = $('#urlInput').val().trim()
         $('#submit').attr('data-link', userInput);
-
         var rsslink = $(this).data('link');
         var queryURL = "http://rss2json.com/api.json?rss_url=" + rsslink;
         $('#submit').removeData();
