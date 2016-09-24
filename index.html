@@ -87,11 +87,6 @@
       </div>
     </div>
 
-    
-
-
-
-    
 
     <!-- user input -->
     <div class="md-form input-group" id="userURL">
@@ -101,6 +96,18 @@
       </span>
     </div>
 
+
+  			
+  
+  		<!-- ^(https?://)?|([w|W]{3}\.) -->
+  		<form class="form-inline">
+  			<div class="form-group">
+  				<label for="url">URL</label>
+  				<input type="url" pattern="https?://.+$" required class="form-control" id="urlInput"/>
+  				<button id="submit"
+  				type="button" class="btn btn-primary btn-lg">Submit</button>
+  			</div>
+  		</form>
 
 <!--Panel-->
 <div class="card" id="chart1">
