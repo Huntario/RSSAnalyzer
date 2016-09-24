@@ -53,12 +53,11 @@ function dbinsert (query){
 //and add to databse
 $('button').on('click', function() {
         var userInput = $('#urlInput').val().trim()
-        console.log('HERE IT IS ' + userInput);
-        // var result = userInput.replace(/.*?:\/\//g, "");
         $('#submit').attr('data-link', userInput);
 
         var rsslink = $(this).data('link');
         var queryURL = "http://rss2json.com/api.json?rss_url=" + rsslink;
+        $('#submit').removeData();
         $.ajax({
                 url: queryURL,
                 method: 'GET'
