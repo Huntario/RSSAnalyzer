@@ -29,6 +29,7 @@ function analysis(analyzed, link) {
                     sentiment: response.aggregate.sentiment,
                     time: moment().format('YYYY-MM-DD h:mm:ss a'),    
                     };
+                    console.log(response);
                 console.log("query url " + queryURL);
                 console.log("analyzed" + analyzed);
                 dbinsert(query)
