@@ -61,6 +61,7 @@ $('button').on('click', function() {
         var rsslink = $(this).data('link');
         var queryURL = "http://rss2json.com/api.json?rss_url=" + rsslink;
         $('#submit').removeData();
+        $('h4').empty();
         $.ajax({
                 url: queryURL,
                 method: 'GET'
@@ -69,7 +70,7 @@ $('button').on('click', function() {
                 console.log(response);
                 if (response.status != 'ok') {
                     console.log('Not a valid URL');
-                    // $('  ').append('Please enter a valid RSS link');
+                    $('h4').append('Make sure http(s):// is included in your link and that you entered a valid RSS link');
                 }
                 var textAnalyzed = []
                 for (i = 0; i < response.items.length; i++){

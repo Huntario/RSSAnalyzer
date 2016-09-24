@@ -102,10 +102,16 @@
   		<!-- ^(https?://)?|([w|W]{3}\.) -->
   		<form class="form-inline">
   			<div class="form-group">
-  				<label for="url">URL</label>
-  				<input type="url" pattern="https?://.+$" required class="form-control" id="urlInput"/>
+  				<label style="color: white" for="url">RSS Link</label>
+  				<input id="urlInput" type="url" pattern="https?://.+" required class="form-control"  /> 
+  				<!-- below is the popup dialog when the button type is set to submit 
+  				oninvalid="setCustomValidity('Make sure http(s):// is included in your link and that you entered a valid RSS link')"
+  				-->
   				<button id="submit"
   				type="button" class="btn btn-primary btn-lg">Submit</button>
+  				<h4 style="color: white">
+
+  				</h4>
   			</div>
   		</form>
 
