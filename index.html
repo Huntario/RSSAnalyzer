@@ -1,63 +1,97 @@
 <!DOCTYPE html>
 <html>
-
+<head>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+<script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.15.0/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/momentjs/2.15.0/locales.min.js"></script>
 <head>
 	<title>RSS Analyzer</title>
 	<meta charset="utf-8">
-
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="./assets/css/tonieStyle.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/charts.css">
+  <link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
 </head>
 <body>
 	<!-- holds all content -->
-	<div class="container-fluid">
-		<!-- jumbotron/header -->
-		<div class="jumbotron">
-  			<h1 class="text-center">Sentiment Analyzer</h1>
-  			<p class="text-center">Analyze the sentiment of RSS News Feeds</p>
-  		</div>
+	<div class="jumbotron">
+    <div class="container">
+      <h1 class="text-center" id="jumbo1">RSS Sentiment Analyzer</h1>
+      <p class="text-center" id="jumbo2">Analyze the sentiment of RSS News Feeds</p>
+    </div>
+  </div>
  
   		<!-- News buttons -->
-		<div class="btn-group btn-group-justified" role="group" aria-label="...">
-  			<div class="btn-group" role="group">
-    			<button type="button" class="btn btn-primary btn-lg" data-link="http://rss.cnn.com/rss/cnn_topstories.rss">CNN</button>
-  			</div>
-  			<div class="btn-group" role="group">
-    			<button type="button" class="btn btn-primary btn-lg" data-link="http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk">BBC</button>
-  			</div>
-  			<div class="btn-group" role="group">
-    			<button type="button" class="btn btn-primary btn-lg" data-link="http://feeds.foxnews.com/foxnews/latest">FOX</button>
-  			</div>
-  			<div class="btn-group" role="group">
-    			<button type="button" class="btn btn-primary btn-lg" data-link="http://feeds.washingtonpost.com/rss/world">WA Post</button>
-  			</div>
-  			
-  		
-		</div>
+	 <div class="container">
+    <!-- news buttons -->
+    <!-- first row of buttons -->
+    <div class="btn-group btn-group-justified" role="group">
+      <!-- 1 -->
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://rss.cnn.com/rss/cnn_topstories.rss">CNN</button>
+      </div>
+      <!-- 2 -->
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk">BBC</button>
+      </div>
+      <!-- 3 -->
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://feeds.foxnews.com/foxnews/latest">FOX</button>
+      </div>
+      <!-- 4 -->
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://feeds.washingtonpost.com/rss/world">WA Post</button>
+      </div>
+    </div>
+    <!-- second row of buttons -->
+    <div class="btn-group btn-group-justified" role="group" id="row2">
+      <!-- 5 -->
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">NY Times</button>
+      </div>
+      <!-- 6 -->
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://feeds.feedburner.com/SAGoodNews?format=xml">SA The Good News</button>
+      </div>
+      <!-- 7 -->
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://www.goodnewsnetwork.org/feed/">The Good News Network</button>
+      </div>
+      <!-- 8 -->
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://feeds.reuters.com/Reuters/worldNews">Reuters</button> 
+      </div>
+    </div>
 
-		<div class="btn-group btn-group-justified" role="group" aria-label="...">
-			<div class="btn-group" role="group">
-    			<button type="button" class="btn btn-primary btn-lg" data-link="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">NY Times</button>
-  			</div>
-  			<div class="btn-group" role="group">
-    			<button type="button" class="btn btn-primary btn-lg" data-link="http://feeds.feedburner.com/SAGoodNews?format=xml">SA The Good News</button>
-  			</div>
+    <!-- third row of buttons -->
 
-			<div class="btn-group" role="group">
-    			<button type="button" class="btn btn-primary btn-lg" data-link="http://www.goodnewsnetwork.org/feed/">The Good News Network</button>
-  			</div>
+    <div class="btn-group btn-group-justified" role="group" id="row3">
+      <!-- 9 -->
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://feeds.reuters.com/news/usmarkets">Reuters US Markets</button>
+      </div>
+      <!-- 10 -->
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://www.ft.com/rss/home/us">FT US Markets</button>
+      </div>
+      <!-- 11 -->
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://www.economist.com/topics/chinese-economy/index.xml">The Economist China</button>
+      </div>
+      <!-- 12 -->
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://www.economist.com/sections/europe/rss.xml">The Economist Europe</button> 
+      </div>
+    </div>
 
-  			<div class="btn-group" role="group">
-    			<button type="button" class="btn btn-primary btn-lg" data-link="https://www.reddit.com/.rss">Reddit Front Page</button>
-  			</div>
-  		</div>
   		<!-- ^(https?://)?|([w|W]{3}\.) -->
   		<form class="form-inline">
   			<div class="form-group">
   				<label style="color: white" for="url">RSS Link</label>
-  				<input id="urlInput" type="url" pattern="https?://.+" required class="form-control"  /> 
+  				<input id="urlInput" type="url" pattern="https?://.+" required class="form-control"/> 
   				<!-- below is the popup dialog when the button type is set to submit 
   				oninvalid="setCustomValidity('Make sure http(s):// is included in your link and that you entered a valid RSS link')"
   				-->
@@ -68,33 +102,35 @@
   				</h4>
   			</div>
   		</form>
+<!--Panel-->
+<div class="card" id="chart1">
+    <div class="card-block">
+        <h1 class="panel-title"><strong>Sentiment Over Time</strong></h1>
+        <div class="ct-chart"></div>
+    </div>
+</div>
+<!--/.Panel-->
+      <table class="table text-center" id="queryTables">
+      <thead class="thead-default">
+        <tr>
+          <th><p class="text-center">Score</p></th>
+          <th><p class="text-center">Sentiment</p></th>
+          <th><p class="text-center">Source<p></th>
+          <th><p class="text-center">Time<p></th>
+      </thead>
+      <tbody>
+        <tr>
+        </tr>
+      </tbody>
+    </table>
 
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<h3 class="panel-title"><strong>Recent Scores</strong></h3>
-				</div>
-				<div class="panel-body">
-					<table class="table table-hover" id='queryTables'>
-						<thead>
-							<tr>
-								<th>Negative/Positive Score</th>
-								<th>Overall Sentiment</th>
-								<th>Source</th>
-							</tr>
-						</thead>
-						<tbody>
-							
-						</tbody>
-					</table>
-				</div>
-			</div>
-		<!-- watson output -->
-	</div>
+  </div>
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery.js"></script>
 
 <!-- our JS -->
 <script type="text/javascript" src="assets/js/rssanalyzer.js"></script>
+<script type="text/javascript" src="assets/js/charts.js"></script>
 </body>
 </html>
