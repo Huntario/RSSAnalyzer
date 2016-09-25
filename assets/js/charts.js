@@ -64,14 +64,12 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     cnnScores.push(score)
     }
 });
-
 var data = {
   series: [nytScoreChart,wapScoreChart,cnnScoreChart,bbcScoreChart,foxScoreChart,sagScoreChart,tgnScoreChart,teeScores]
 };
 // We are setting a few options for the chart and overriding the defaults
 var options = {
-
-  width: '100%',
+  width: '99%',
   height: '400px',
   showPoint: false,
   lineSmooth: true,
@@ -81,21 +79,13 @@ var options = {
 	  onlyInteger: false,
 	  referenceValue: 0,
   axisX: {
-
     showGrid: false,
     showLabel: true,
     },
   axisY: {
-   
     labelInterpolationFnc: function(value) {
       return value;
     }
   }
-  
-
 };
-
 new Chartist.Line('.ct-chart', data, options);
-
-
-
