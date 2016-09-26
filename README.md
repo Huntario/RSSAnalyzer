@@ -99,7 +99,7 @@ returns
 ```
 
 
-3 #### Firebase Info ####
+Firebase Info
 
 When the app writes to firbase, this is what it writes:
 
