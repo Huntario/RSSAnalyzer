@@ -106,7 +106,7 @@ returns
 When the app writes to firbase, this is what it writes:
 
 ```json
--KS5DmdBg9LUXnBIA35T (this is the unique ID created by Firebase, it creates a unique ID for each entry)
+-uniqueid
     query
         score: -0.26330603303881905
         sentiment: "negative"
