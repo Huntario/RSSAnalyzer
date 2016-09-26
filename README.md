@@ -37,6 +37,8 @@ AGENDA
 http://rss2json.com/api.json?rss_url=https%3A%2F%2Fnews.ycombinator.com%2Frss
 RETURNS
 
+```json
+
 {
 status: "ok",
 
@@ -59,7 +61,10 @@ items: [
 	description: "<a href="https://news.ycombinator.com/item?id=12520873">Comments</a>",
 	content: "<a href="https://news.ycombinator.com/item?id=12520873">Comments</a>"
 
-}, etc 
+},
+```
+
+ etc 
 
 
 2 #### HEP Sentiment Analysis ####
