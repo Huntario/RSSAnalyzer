@@ -25,7 +25,7 @@ EXTRA
 
 
 
-1 #### RSS to JSON URL ####
+RSS to JSON URL
 
 - http://rss2json.com/api.json
 
@@ -57,15 +57,13 @@ items: [
 	description: "<a href="https://news.ycombinator.com/item?id=12520873">Comments</a>",
 	content: "<a href="https://news.ycombinator.com/item?id=12520873">Comments</a>"
 
-},
+}, more items
 ```
 
- etc 
 
+HEP Sentiment Analysis
 
-2 #### HEP Sentiment Analysis ####
-
- "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=The+happy+green+cat+jumped+high.+The+mean+man+was+angry+and+depressed.&apikey=ba67a893-398a-4cdb-ac52-57764039436f"
+ "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=The+happy+green+cat+jumped+high.+The+mean+man+was+angry+and+depressed.&apikey=apikeygoeshere"
  
 returns
 
