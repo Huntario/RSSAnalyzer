@@ -1,20 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<script src="https://code.jquery.com/jquery.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-<script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-<script src="https://cdn.jsdelivr.net/momentjs/2.15.0/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/momentjs/2.15.0/locales.min.js"></script>
-<head>
+
+  <script src="https://code.jquery.com/jquery.js">
+  </script>
+
+  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+
+  <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/momentjs/2.15.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.15.0/locales.min.js"></script>
+
+  <!-- <script src="assets/js/highchartTable.js" type="text/javascript"></script> -->
+
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+
+  <script src="assets/js/highchartTable.js" type="text/javascript"></script>
+
 	<title>RSS Analyzer</title>
+
 	<meta charset="utf-8">
+
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
 	<link rel="stylesheet" type="text/css" href="./assets/css/tonieStyle.css">
+
   <link rel="stylesheet" type="text/css" href="./assets/css/charts.css">
+
   <link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
+
 </head>
+
 <body>
 	<!-- holds all content -->
 	<div class="jumbotron">
@@ -23,69 +43,31 @@
       <p class="text-center" id="jumbo2">Analyze the sentiment of RSS News Feeds</p>
     </div>
   </div>
- 
   		<!-- News buttons -->
 	 <div class="container">
-    <!-- news buttons -->
-    <!-- first row of buttons -->
-    <div class="btn-group btn-group-justified" role="group">
-      <!-- 1 -->
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://rss.cnn.com/rss/cnn_topstories.rss">CNN</button>
+    <!-- <div class="buttons btn-group" role="group"> -->
+      <div class="row">
+        <div id="0"></div>
+        <div id="1"></div>
+        <div id="2"></div>
       </div>
-      <!-- 2 -->
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk">BBC</button>
+      <div class="row">
+        <div id="3"></div>
+        <div id="4"></div>
+        <div id="5"></div>
       </div>
-      <!-- 3 -->
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://feeds.foxnews.com/foxnews/latest">FOX</button>
+      <div class="row">
+        <div id="6"></div>
+        <div id="7"></div>
+        <div id="8"></div>
       </div>
-      <!-- 4 -->
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://feeds.washingtonpost.com/rss/world">WA Post</button>
+      <div class="row">
+        <div id="9"></div>
+        <div id="10"></div>
+        <div id="11"></div>
       </div>
-    </div>
-    <!-- second row of buttons -->
-    <div class="btn-group btn-group-justified" role="group" id="row2">
-      <!-- 5 -->
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://rss.nytimes.com/services/xml/rss/nyt/World.xml">NY Times</button>
-      </div>
-      <!-- 6 -->
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://feeds.feedburner.com/SAGoodNews?format=xml">SA The Good News</button>
-      </div>
-      <!-- 7 -->
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://www.goodnewsnetwork.org/feed/">The Good News Network</button>
-      </div>
-      <!-- 8 -->
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://feeds.reuters.com/Reuters/worldNews">Reuters</button> 
-      </div>
-    </div>
-
-    <!-- third row of buttons -->
-
-    <div class="btn-group btn-group-justified" role="group" id="row3">
-      <!-- 9 -->
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://feeds.reuters.com/news/usmarkets">Reuters US Markets</button>
-      </div>
-      <!-- 10 -->
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://www.ft.com/rss/home/us">FT US Markets</button>
-      </div>
-      <!-- 11 -->
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://www.economist.com/topics/chinese-economy/index.xml">The Economist China</button>
-      </div>
-      <!-- 12 -->
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-deep-purple btn-lg" data-link="http://www.economist.com/sections/europe/rss.xml">The Economist Europe</button> 
-      </div>
-    </div>
+      <!-- </div> -->
+    </div> 
 
   		<!-- ^(https?://)?|([w|W]{3}\.) -->
   		<form class="form-inline">
@@ -98,7 +80,6 @@
   				<button id="submit"
   				type="button" class="btn btn-primary btn-lg">Submit</button>
   				<h4 style="color: white">
-
   				</h4>
   			</div>
   		</form>
@@ -110,27 +91,56 @@
     </div>
 </div>
 <!--/.Panel-->
-      <table class="table text-center" id="queryTables">
-      <thead class="thead-default">
+<!-- <div>
+  <div class="highchart-container">
+    
+  </div>
+</div> -->
+<!-- <div>
+      <table class="highchart" data-graph-container=".highchart-container" data-graph-type="line"> 
+      <caption> Test </caption>
+      <thead>
         <tr>
-          <th><p class="text-center">Score</p></th>
-          <th><p class="text-center">Sentiment</p></th>
-          <th><p class="text-center">Source<p></th>
-          <th><p class="text-center">Time<p></th>
+          <th>Score</th>
+          <th>Sentiment</th>
+          <th>Source</th>
+          <th>Time</th>
       </thead>
       <tbody>
         <tr>
         </tr>
       </tbody>
     </table>
+</div> -->
 
-  </div>
+<div>
+      <table class="table text-center" id="queryTables">
+      <thead class="thead-default">
+        <tr>
+          <th><p class="text-center">Score</p></th>
+          <th><p class="text-center">Sentiment</p></th>
+          <th><p class="text-center">Source</p></th>
+          <th><p class="text-center">Time</p></th>
+      </thead>
+      <tbody>
+        <tr>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+
+  <!-- </div> -->
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery.js"></script>
 
 <!-- our JS -->
 <script type="text/javascript" src="assets/js/rssanalyzer.js"></script>
+
+<script src="http://code.highcharttable.org/master/jquery.highchartTable-min.js"></script>
+
 <script type="text/javascript" src="assets/js/charts.js"></script>
+
 </body>
 </html>
