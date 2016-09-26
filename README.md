@@ -1,10 +1,14 @@
 README.md
 
 GOALS
-X - 01.Must uses at least two APIs<br>
-X - 02.Must use AJAX to pull data<br>
-X - 03.Must utilize at least one new library or technology that we haven’t discussed 
-04.Must have a polished frontend / UI 
+X - 01.Must uses at least two APIs  
+
+X - 02.Must use AJAX to pull data  
+
+X - 03.Must utilize at least one new library or technology that we haven’t discussed  
+
+04.Must have a polished frontend / UI  
+
 X - 05.Must meet good quality coding standards (indentation, scoping, naming)
 X - 06.Must NOT use alerts, confirms, or prompts (look into modals!)  
 X - 07.Must have some sort of repeating element (table, columns, etc)
