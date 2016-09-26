@@ -1,41 +1,39 @@
-README.md
-
-GOALS
-X - 01.Must uses at least two APIs
-X - 02.Must use AJAX to pull data
-X - 03.Must utilize at least one new library or technology that we haven’t discussed 
-04.Must have a polished frontend / UI 
-X - 05.Must meet good quality coding standards (indentation, scoping, naming)
-X - 06.Must NOT use alerts, confirms, or prompts (look into modals!)  
-X - 07.Must have some sort of repeating element (table, columns, etc)
-X - 08.Must use Bootstrap or Alternative CSS Framework 
-X - 09.Must be Deployed (Heroku or Firebase)
-10.Must have User Input Validation
-
-Bonus 
-X - 11.Utilize Firebase for Persistent Data Storage (Consider this basically a requirement).
-12.Mobile Responsive
-13.Use an alternative CSS framework like Material
+GOALS  
+X - 01.Must uses at least two APIs  
+X - 02.Must use AJAX to pull data  
+X - 03.Must utilize new library or tech that we haven’t discussed  
+04.Must have a polished frontend / UI  
+X - 05.Must meet good quality coding standards (indentation, scoping, naming)  
+X - 06.Must NOT use alerts, confirms, or prompts (look into modals!)     
+X - 07.Must have some sort of repeating element (table, columns, etc)  
+X - 08.Must use Bootstrap or Alternative CSS Framework   
+X - 09.Must be Deployed (Heroku or Firebase)  
+x - 10.Must have User Input Validation    
+Bonus   
+X - 11.Firebase/ Persistent Data Storage(basically a requirement).    
+12.Mobile Responsive    
+X - 13.Use an alternative CSS framework like Material    
 
 
-04.polish UI 
-12.Mobile Responsive
-13.Use an alternative CSS framework like Material
+AGENDA  
+1. make responsive (buttons)   
+2. fix graph issue  
+3. clean up code  
 
-AGENDA
-1. add space to insert own RSS link
-2. validate it is an RSS link
-3. clean up code
-4. Look at UI options
+EXTRA  
+1. Make table sortable by colum.
 
 
-1 #### RSS to JSON URL ####
+
+RSS to JSON URL
 
 - http://rss2json.com/api.json
 
 - rss feed you want to convert to json, the url need to be escaped (eg. https%3A%2F%2Fnews.ycombinator.com%2Frss )
 http://rss2json.com/api.json?rss_url=https%3A%2F%2Fnews.ycombinator.com%2Frss
 RETURNS
+
+```javascript
 
 {
 status: "ok",
@@ -59,14 +57,17 @@ items: [
 	description: "<a href="https://news.ycombinator.com/item?id=12520873">Comments</a>",
 	content: "<a href="https://news.ycombinator.com/item?id=12520873">Comments</a>"
 
-}, etc 
+}, more items
+```
 
 
-2 #### HEP Sentiment Analysis ####
+HEP Sentiment Analysis
 
- "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=The+happy+green+cat+jumped+high.+The+mean+man+was+angry+and+depressed.&apikey=ba67a893-398a-4cdb-ac52-57764039436f"
+ "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=The+happy+green+cat+jumped+high.+The+mean+man+was+angry+and+depressed.&apikey=apikeygoeshere"
  
 returns
+
+```json
 {
   "positive": [
     {
@@ -95,13 +96,15 @@ returns
     "score": -0.20260234747518735
   }
 }
+```
 
 
-3 #### Firebase Info ####
+Firebase Info
 
 When the app writes to firbase, this is what it writes:
 
--KS5DmdBg9LUXnBIA35T (this is the unique ID created by Firebase, it creates a unique ID for each entry)
+```json
+-uniqueid
     query
         score: -0.26330603303881905
         sentiment: "negative"
@@ -111,3 +114,4 @@ When the app writes to firbase, this is what it writes:
             1: "Aid Convoy Is Hit in Syria as Cease-Fire Falter..."
             2: "Kinshasa, Congo, Is Locked Down as Protests Eru..."
             etc.
+```
