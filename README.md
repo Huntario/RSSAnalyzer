@@ -1,32 +1,30 @@
 README.md
-
-GOALS
+X - completed 
+GOALS  
 X - 01.Must uses at least two APIs  
 X - 02.Must use AJAX to pull data  
-X - 03.Must utilize at least one new library or technology that we haven’t discussed  
+X - 03.Must utilize new library or tech that we haven’t discussed  
 04.Must have a polished frontend / UI  
 X - 05.Must meet good quality coding standards (indentation, scoping, naming)  
 X - 06.Must NOT use alerts, confirms, or prompts (look into modals!)     
 X - 07.Must have some sort of repeating element (table, columns, etc)  
 X - 08.Must use Bootstrap or Alternative CSS Framework   
 X - 09.Must be Deployed (Heroku or Firebase)  
-10.Must have User Input Validation  
-
+x - 10.Must have User Input Validation  
 Bonus   
-X - 11.Utilize Firebase for Persistent Data Storage (Consider this basically a requirement).  
-12.Mobile Responsive  
-13.Use an alternative CSS framework like Material  
+X - 11.Firebase/ Persistent Data Storage(basically a requirement).    
+12.Mobile Responsive    
+X - 13.Use an alternative CSS framework like Material    
 
-
-04.polish UI     
-12.Mobile Responsive  
-13.Use an alternative CSS framework like Material  
 
 AGENDA  
-1. add space to insert own RSS link  
-2. validate it is an RSS link  
-3. clean up code  
-4. Look at UI options  
+1. make responsive (buttons) 
+2. fix graph issue
+3. clean up code
+
+EXTRA
+1. Make table sortable by colum.
+
 
 
 1 #### RSS to JSON URL ####
@@ -72,6 +70,8 @@ items: [
  "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=The+happy+green+cat+jumped+high.+The+mean+man+was+angry+and+depressed.&apikey=ba67a893-398a-4cdb-ac52-57764039436f"
  
 returns
+
+```json
 {
   "positive": [
     {
@@ -100,6 +100,7 @@ returns
     "score": -0.20260234747518735
   }
 }
+```
 
 
 3 #### Firebase Info ####
