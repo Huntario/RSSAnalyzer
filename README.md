@@ -1,5 +1,4 @@
-README.md
-X - completed 
+X - completed   
 GOALS  
 X - 01.Must uses at least two APIs  
 X - 02.Must use AJAX to pull data  
@@ -18,11 +17,11 @@ X - 13.Use an alternative CSS framework like Material
 
 
 AGENDA  
-1. make responsive (buttons) 
-2. fix graph issue
-3. clean up code
+1. make responsive (buttons)   
+2. fix graph issue  
+3. clean up code  
 
-EXTRA
+EXTRA  
 1. Make table sortable by colum.
 
 
