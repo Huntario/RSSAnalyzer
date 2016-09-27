@@ -40,7 +40,7 @@ function displayButtons() {
     function buttonAttributes() {
         b.attr('id', i);
         b.attr('data-link', buttons[i].link);
-        b.addClass('btn btn-deep-purple btn-lg col-lg-3'); 
+        b.addClass('col-md-3 col-sm-12 col-xs-12 btn btn-lg btn-deep-purple'); 
         b.text(buttons[i].name);
     }
     // for (var i = 0; i < buttons.length; i++) {
@@ -53,7 +53,7 @@ function displayButtons() {
         var id = i;
         var b = $('<button>');
         buttonAttributes();
-        $('#' + id).append(b);  
+        $(setNewsButtons).append(b);  
     }
 }
     
@@ -152,26 +152,4 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
 
 });
 
-// $(function() {
-//     $('highchart-container').highcharts({
-//         chart: {
-//             type: 'line'
-//         },
-//         title: {
-//             text: 'test'
-//         },
-//         xAxis: {
-//             categories: ['Time']
-//         },
-//         yAxis: {
-//             title: {
-//                 text: 'Sentiment'
-//             }
-//         },
-//         series: [{
-//             name: 'button id1',
-//             data: [1,2,3,4,5]
-//         }]
-//     });
-// });
 
