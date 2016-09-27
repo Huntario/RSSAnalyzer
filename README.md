@@ -1,14 +1,14 @@
 PRESENTATION GOALS  
-01 10 minutes    
+-01 10 minutes    
 Explain in detail:  
-02 Overall application’s concept
-03 The motivation for its development
-04 design process
-05 The technologies you used (and briefly how they work)
-  - 5A RSS to JSON api  
-  - 5B Hewelett Packard E Sentiment Analysis API  
-06 A demonstration of its functionality
-07 Directions for future development
+-02 Overall application’s concept  
+-03 The motivation for its development  
+-04 design process  
+-05 The technologies you used (and briefly how they work)  
+  - 5A RSS to JSON api    
+  - 5B Hewelett Packard E Sentiment Analysis API    
+-06 A demonstration of its functionality  
+-07 Directions for future development   
 
 TIPS
 - Treat the presentation seriously!
