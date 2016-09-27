@@ -10,18 +10,6 @@ var eccScores = [];
 var ftuScores = [];
 var rtuScores = [];
 var rumScores = [];
-var nytScoreChart = nytScores;
-var wapScoreChart = wapScores;
-var tgnScoreChart = tgnScores;
-var bbcScoreChart = bbcScores;
-var teeScoreChart = teeScores;
-var sagScoreChart = sagScores;
-var foxScoreChart = foxScores;
-var cnnScoreChart = cnnScores;
-var eccScoreChart = eccScores;
-var ftuScoreChart = ftuScores;
-var rtuScoreChart = rtuScores;
-var rumScoreChart = rumScores;
 
 function tallyScores(source, score) {
     switch(source) {
@@ -63,12 +51,11 @@ function tallyScores(source, score) {
         rumScores.push(score)
         break;  
     }
-};
-
-var data = {
-  series: [nytScoreChart,wapScoreChart,tgnScoreChart,bbcScoreChart,teeScores,sagScoreChart,foxScoreChart,cnnScoreChart,eccScoreChart,ftuScoreChart,rtuScoreChart,rumScoreChart]
-};
+    };
 // We are setting a few options for the chart and overriding the defaults
+var data = {
+    series: [nytScores,wapScores,tgnScores,bbcScores,teeScores,sagScores,foxScores,cnnScores,eccScores,ftuScores,rtuScores,rumScores]
+    };
 var options = {
   width: '99%',
   height: '400px',
@@ -88,6 +75,5 @@ var options = {
       return value;
     }
   }
-};
-
+    };
 new Chartist.Line('.ct-chart', data, options);

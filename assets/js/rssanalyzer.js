@@ -75,51 +75,50 @@ function dbinsert (query){
     };
 // Main
 $(document).ready(function(){ 
-//Get data from database to show last 10 analysees
-database.ref().on("child_added", function(childSnapshot, prevChildKey){
-    // Store everything into a variable.
-    var score = childSnapshot.val().query.score;
-    var sentiment = childSnapshot.val().query.sentiment;
-    var source = childSnapshot.val().query.source;
-    var time = childSnapshot.val().query.time;
-    // Add into the table
-    $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>"); 
-    tallyScores(source, score)
-});
+    //Get data from database to show last 10 analysees
+    database.ref().on("child_added", function(childSnapshot, prevChildKey){
+        // Store everything into a variable.
+        var score = childSnapshot.val().query.score;
+        var sentiment = childSnapshot.val().query.sentiment;
+        var source = childSnapshot.val().query.source;
+        var time = childSnapshot.val().query.time;
+        // Add into the table
+        $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>"); 
+        tallyScores(source, score)
+    });
 
-buttonAttributes();
-//RSS TO JSON, then send to SentimentAPI, 
-//then create object for query 
-//and add to databse
-$('button').on('click', function() {
-        var userInput = $('#urlInput').val().trim()
-        $('#submit').attr('data-link', userInput);
-        var rsslink = $(this).data('link');
-        var queryURL = "http://rss2json.com/api.json?rss_url=" + rsslink;
-        $('#submit').removeData();
-        $('h4').empty();
-        $.ajax({
-                url: queryURL,
-                method: 'GET'
-            })
-            .done(function(response) {
-                if (response.status != 'ok') {
-                    console.log('Not a valid URL');
-                    $('#warning').html('<p> Make sure http(s):// is included in your link and that you entered a valid RSS link</p>');
-                }
-                var textAnalyzed = []
-                for (i = 0; i < response.items.length; i++){
-                    var l = response.items[i].title
-                    //strip out "&" , Q&amp" ,or "#038" from analysis. It breaks the api (looks for key)
-                    l = l.replace('Q&amp;','');
-                    l = l.replace('#038;','');
-                    l = l.replace('&','');
-                    l = l.replace('#','');
-                    textAnalyzed.push(l)
-                }
-                analysis(textAnalyzed, rsslink);      
-                }) 
-        });
+    buttonAttributes();
+    //RSS TO JSON, then send to SentimentAPI, 
+    //then create object for query 
+    //and add to databse
+    $('button').on('click', function() {
+            var userInput = $('#urlInput').val().trim()
+            $('#submit').attr('data-link', userInput);
+            var rsslink = $(this).data('link');
+            var queryURL = "http://rss2json.com/api.json?rss_url=" + rsslink;
+            $('#submit').removeData();
+            $('h4').empty();
+            $.ajax({
+                    url: queryURL,
+                    method: 'GET'
+                })
+                .done(function(response) {
+                    if (response.status != 'ok') {
+                        console.log('Not a valid URL');
+                        $('#warning').html('<p> Make sure http(s):// is included in your link and that you entered a valid RSS link</p>');
+                    }
+                    var textAnalyzed = []
+                    for (i = 0; i < response.items.length; i++){
+                        var l = response.items[i].title
+                        //strip out "&" , Q&amp" ,or "#038" from analysis. It breaks the api (looks for key)
+                        l = l.replace('Q&amp;','');
+                        l = l.replace('#038;','');
+                        l = l.replace('&','');
+                        l = l.replace('#','');
+                        textAnalyzed.push(l)
+                    }
+                    analysis(textAnalyzed, rsslink);      
+                    }) 
+            });
 });
-
 
