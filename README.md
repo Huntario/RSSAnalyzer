@@ -1,3 +1,8 @@
+PRESENTATION TOPICS
+-RSS to JSON api
+-Hewelett Packard E Sentiment Analysis API
+
+
 GOALS  
 X - 01.Must uses at least two APIs  
 X - 02.Must use AJAX to pull data  
