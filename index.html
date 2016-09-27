@@ -1,125 +1,81 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-<script src="https://code.jquery.com/jquery.js"></script>
-<script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-
-<script src="https://cdn.jsdelivr.net/momentjs/2.15.0/moment.min.js"></script>
-<script src="https://cdn.jsdelivr.net/momentjs/2.15.0/locales.min.js"></script>
-<!--<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>-->
-
-<!--<script type="text/javascript" src="assets/js/googleCharts.js"></script>-->
-
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+  <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.15.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.15.0/locales.min.js"></script>
 	<title>RSS Analyzer</title>
-
 	<meta charset="utf-8">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-	<link rel="stylesheet" type="text/css" href="./assets/css/tonieStyle.css">
-
   <link rel="stylesheet" type="text/css" href="./assets/css/charts.css">
-
   <link rel="stylesheet" type="text/css" href="./assets/css/chartist-plugin-tooltip.css">
-
   <link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
-
+  <link rel="stylesheet" type="text/css" href="./assets/css/tonieStyle.css">
 </head>
-
 <body>
-	<!-- holds all content -->
+	<!-- jumbotron -->
 	<div class="jumbotron">
     <div class="container">
       <h1 class="text-center" id="jumbo1">RSS Sentiment Analyzer</h1>
       <p class="text-center" id="jumbo2">Analyze the sentiment of RSS News Feeds</p>
     </div>
   </div>
-  		<!-- News buttons -->
-	 <div class="container">
-    <!-- <div class="buttons btn-group" role="group"> -->
-      <div class="row">
-        <div id="0"></div>
-        <div id="1"></div>
-        <div id="2"></div>
-      </div>
-      <div class="row">
-        <div id="3"></div>
-        <div id="4"></div>
-        <div id="5"></div>
-      </div>
-      <div class="row">
-        <div id="6"></div>
-        <div id="7"></div>
-        <div id="8"></div>
-      </div>
-      <div class="row">
-        <div id="9"></div>
-        <div id="10"></div>
-        <div id="11"></div>
-      </div>
-      <!-- </div> -->
-    </div> 
+   <!-- News buttons -->
 
-    <!-- user input 
-    <div class="md-form input-group" id="userURL">
-      <input type="url" pattern="^(https?://)([w|W]{3}\.).+$" class="form-control input-lg" placeholder="Search URL..." id="urlInput">
-      <span class="input-group-btn">
-        <button class="btn btn-primary btn-lg" type="button">Go!</button>
-      </span>
-    </div>-->
-  		<!-- ^(https?://)?|([w|W]{3}\.) -->
-  		<form class="form-inline">
-  			<div class="form-group">
-  				<label style="color: white" for="url">RSS Link</label>
-  				<input id="urlInput" type="url" pattern="https?://.+" required class="form-control"/> 
-  				<!-- below is the popup dialog when the button type is set to submit 
-  				oninvalid="setCustomValidity('Make sure http(s):// is included in your link and that you entered a valid RSS link')"
-  				-->
-  				<button id="submit"
-  				type="button" class="btn btn-primary btn-lg">Submit</button>
-  				<h4 style="color: white">
-  				</h4>
-  			</div>
-  		</form>
+  <div class="container">
+    <div class="btn-group" id="setNewsButtons">
+  </div>
 
-<!--Panel-->
-<div class="card" id="chart1">
-    <div class="card-block">
-        <h1 class="panel-title"><strong>Sentiment Over Time</strong></h1>
-        <div class="ct-chart"></div>
+  <div class="container">
+    	<form class="form-inline">
+    		<div class="form-group">
+    			<label style="color: white" for="url">RSS Link</label>
+    			<input id="urlInput" type="url" pattern="https?://.+" required class="form-control"/> 
+    			<!-- below is the popup dialog when the button type is set to submit 
+    			oninvalid="setCustomValidity('Make sure http(s):// is included in your link and that you entered a valid RSS link')"
+    			-->
+    			<button id="submit"
+    			type="button" class="btn btn-primary btn-lg">Submit</button>
+    			<h4 style="color: white">
+    			</h4>
+    		</div>
+    	</form>
+  </div>
+  <!--Panel-->
+  <div class="container">
+    <div class="card" id="chart1">
+        <div class="card-block">
+            <h1 class="panel-title"><strong>Sentiment Over Time</strong></h1>
+            <div class="ct-chart"></div>
+        </div>
     </div>
-</div>
-<!--/.Panel-->
-<div>
-      <table class="table text-center" id="queryTables">
-      <thead class="thead-default">
-        <tr>
-          <th><p class="text-center">Score</p></th>
-          <th><p class="text-center">Sentiment</p></th>
-          <th><p class="text-center">Source</p></th>
-          <th><p class="text-center">Time</p></th>
-      </thead>
-      <tbody>
-        <tr>
-        </tr>
-      </tbody>
+
+  </div>
+  <div class="container">
+        <table class="table text-center" id="queryTables">
+        <thead class="thead-default">
+          <tr>
+            <th><p class="text-center">Score</p></th>
+            <th><p class="text-center">Sentiment</p></th>
+            <th><p class="text-center">Source</p></th>
+            <th><p class="text-center">Time</p></th>
+        </thead>
+        <tbody>
+          <tr>
+          </tr>
+        </tbody>
     </table>
-</div>
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery.js"></script>
-<!-- our JS -->
-<script type="text/javascript" src="assets/js/rssanalyzer.js"></script>
-
-<script src="http://code.highcharttable.org/master/jquery.highchartTable-min.js"></script>
-
-<script type="text/javascript" src="assets/js/charts.js"></script>
-
-<script type="text/javascript" src="assets/js/chartist-plugin-tooltip.min.js"></script>
-
+  </div>
 </body>
+<!-- jQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- our JS -->
+  <script type="text/javascript" src="assets/js/rssanalyzer.js"></script>
+  <script src="http://code.highcharttable.org/master/jquery.highchartTable-min.js"></script>
+  <script type="text/javascript" src="assets/js/charts.js"></script>
+  <script type="text/javascript" src="assets/js/chartist-plugin-tooltip.min.js"></script>
 </html>
