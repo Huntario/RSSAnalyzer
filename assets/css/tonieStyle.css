@@ -10,17 +10,32 @@ body{
 	background-image: url(../images/stardust_@2X.png);
 }
 
-.btn-group .btn-group-justified{
-	height: 100%
-	margin-top:40%;
-} 
-
 #chart1 {
-
 	background-color: white;
 }
 
 .panel-title {
-
 	text-align: center;
+}
+
+.row{
+	margin-bottom: 0;
+}
+
+.col-md-3,
+.col-sm-6,
+.col-xs-12,
+.btn,
+.btn-deep-purple{
+	margin-right: 0;
+	margin-left: 0;
+	margin-bottom: 0;
+}
+
+#userURL{
+	margin-top: 2%;
+}
+
+#urlInput{
+	color: white;
 }

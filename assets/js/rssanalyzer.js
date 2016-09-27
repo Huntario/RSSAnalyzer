@@ -40,20 +40,14 @@ function displayButtons() {
     function buttonAttributes() {
         b.attr('id', i);
         b.attr('data-link', buttons[i].link);
-        b.addClass('col-md-3 col-sm-12 col-xs-12 btn btn-lg btn-deep-purple'); 
+        b.addClass('col-md-3 col-sm-6 col-xs-12 btn btn-lg btn-deep-purple'); 
         b.text(buttons[i].name);
     }
-    // for (var i = 0; i < buttons.length; i++) {
-    //     var b = $('<button>');
-    //     buttonAttributes();
-    //     $('.buttons').append(b);
-    // }
-
     for (var i = 0; i < buttons.length; i++) {
         var id = i;
         var b = $('<button>');
         buttonAttributes();
-        $(setNewsButtons).append(b);  
+        $('#setNewsButtons').append(b);  
     }
 }
     
