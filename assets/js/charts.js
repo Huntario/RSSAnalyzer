@@ -23,16 +23,11 @@ var ftuScoreChart = ftuScores;
 var rtuScoreChart = rtuScores;
 var rumScoreChart = rumScores;
 
-database.ref().on("child_added", function(childSnapshot, prevChildKey){
-
-    var score = childSnapshot.val().query.score;
-    var sentiment = childSnapshot.val().query.sentiment;
-    var source = childSnapshot.val().query.source;
-    var time = childSnapshot.val().query.time;
-
+function tallyScores(source, score) {
     switch(source) {
     case "http://rss.nytimes.com/services/xml/rss/nyt/World.xml":
         nytScores.push(score)
+        return nytScores;
         break;
     case "http://feeds.washingtonpost.com/rss/world":
         wapScores.push(score)
@@ -68,7 +63,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
         rumScores.push(score)
         break;  
     }
-});
+};
 
 var data = {
   series: [nytScoreChart,wapScoreChart,tgnScoreChart,bbcScoreChart,teeScores,sagScoreChart,foxScoreChart,cnnScoreChart,eccScoreChart,ftuScoreChart,rtuScoreChart,rumScoreChart]
@@ -94,4 +89,5 @@ var options = {
     }
   }
 };
+
 new Chartist.Line('.ct-chart', data, options);
