@@ -39,3 +39,8 @@ body{
 #urlInput{
 	color: white;
 }
+
+#myChart{
+	background-color: white;
+	margin-bottom: 2%;
+}
