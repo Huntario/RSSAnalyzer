@@ -41,15 +41,11 @@ EXTRA
 
 
 RSS to JSON URL
-
 - http://rss2json.com/api.json
-
 - rss feed you want to convert to json, the url need to be escaped (eg. https%3A%2F%2Fnews.ycombinator.com%2Frss )
 http://rss2json.com/api.json?rss_url=https%3A%2F%2Fnews.ycombinator.com%2Frss
 RETURNS
-
 ```javascript
-
 {
 status: "ok",
 
