@@ -122,11 +122,7 @@ $(document).ready(function(){
 
     displayButtons();
 
-    new Chartist.Line('.ct-chart', data, options);
-
-// $('table.highchart').highchartTable(); 
-
-// $(window).load(initializeChart);
+    new Chartist.Line('.ct-chart', data, options); 
 // Main
 $('.btn btn-primary').on('click', function () {
     console.log('HERE IS ' + this);
@@ -142,10 +138,7 @@ $('button').on('click', function() {
         var queryURL = "http://rss2json.com/api.json?rss_url=" + rsslink;
         $('#submit').removeData();
         $('h4').empty();
-        console.log(this.id);
-        if (this.id === '0') {
-            cnn.array.push(score);
-        }
+    
         $.ajax({
                 url: queryURL,
                 method: 'GET'
@@ -169,8 +162,7 @@ $('button').on('click', function() {
                 analysis(textAnalyzed, rsslink);
                 console.log("text analyzed " + textAnalyzed);
                 
-                })
-            $('table.highchart').highchartTable(); 
+                }) 
         });
 });
 
@@ -185,60 +177,29 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>");
 
     if (source === "http://rss.nytimes.com/services/xml/rss/nyt/World.xml"){   
-    //nytScores.push(score);
     cnn.array.push(score)
     }
     if (source === "http://feeds.washingtonpost.com/rss/world"){   
-    //nytScores.push(score);
     waPost.array.push(score)
     }
     if (source === "http://www.goodnewsnetwork.org/feed/"){   
-    //nytScores.push(score);
     gnn.array.push(score)
     }
     if (source === "http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk"){   
-    //nytScores.push(score);
     bbc.array.push(score)
     }
     if (source === "http://www.economist.com/sections/europe/rss.xml"){   
-    //nytScores.push(score);
     economistEurope.array.push(score)
     }
     if (source === "http://feeds.feedburner.com/SAGoodNews?format=xml"){   
-    //nytScores.push(score);
     goodNews.array.push(score)
     }
     if (source === "http://feeds.foxnews.com/foxnews/latest"){   
-    //nytScores.push(score);
     fox.array.push(score)
     }
     if (source === "http://rss.cnn.com/rss/cnn_topstories.rss"){   
-    //nytScores.push(score);
     cnn.array.push(score)
     }
     
 });
-
-// $(function() {
-//     $('highchart-container').highcharts({
-//         chart: {
-//             type: 'line'
-//         },
-//         title: {
-//             text: 'test'
-//         },
-//         xAxis: {
-//             categories: ['Time']
-//         },
-//         yAxis: {
-//             title: {
-//                 text: 'Sentiment'
-//             }
-//         },
-//         series: [{
-//             name: 'button id1',
-//             data: [1,2,3,4,5]
-//         }]
-//     });
-// });
 
