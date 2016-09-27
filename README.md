@@ -19,8 +19,8 @@ GOALS
 X - 01.Must uses at least two APIs  
 X - 02.Must use AJAX to pull data  
 X - 03.Must utilize new library or tech that we haven’t discussed  
-04.Must have a polished frontend / UI  
-X - 05.Must meet good quality coding standards (indentation, scoping, naming)  
+(GRAPH APPEARING ISSUE) 04.Must have a polished frontend / UI  
+X - 05.coding standards (indentation, scoping, naming)  
 X - 06.Must NOT use alerts, confirms, or prompts (look into modals!)     
 X - 07.Must have some sort of repeating element (table, columns, etc)  
 X - 08.Must use Bootstrap or Alternative CSS Framework   
@@ -28,18 +28,16 @@ X - 09.Must be Deployed (Heroku or Firebase)
 x - 10.Must have User Input Validation    
 Bonus   
 X - 11.Firebase/ Persistent Data Storage(basically a requirement).    
-12.Mobile Responsive    
+x - 12.Mobile Responsive    
 X - 13.Use an alternative CSS framework like Material    
 
 
-AGENDA  
-1. make responsive (buttons)   
-2. fix graph issue  
-3. clean up code  
+AGENDA     
+1. fix graph issue  
+2. clean up code  
 
 EXTRA  
 1. Make table sortable by colum.
-
 
 
 RSS to JSON URL
