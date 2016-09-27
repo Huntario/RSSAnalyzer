@@ -168,31 +168,5 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     var source = childSnapshot.val().query.source;
     var time = childSnapshot.val().query.time;
     // Add into the table
-    $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>");
-
-    if (source === "http://rss.nytimes.com/services/xml/rss/nyt/World.xml"){   
-    cnn.array.push(score)
-    }
-    if (source === "http://feeds.washingtonpost.com/rss/world"){   
-    waPost.array.push(score)
-    }
-    if (source === "http://www.goodnewsnetwork.org/feed/"){   
-    gnn.array.push(score)
-    }
-    if (source === "http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk"){   
-    bbc.array.push(score)
-    }
-    if (source === "http://www.economist.com/sections/europe/rss.xml"){   
-    economistEurope.array.push(score)
-    }
-    if (source === "http://feeds.feedburner.com/SAGoodNews?format=xml"){   
-    goodNews.array.push(score)
-    }
-    if (source === "http://feeds.foxnews.com/foxnews/latest"){   
-    fox.array.push(score)
-    }
-    if (source === "http://rss.cnn.com/rss/cnn_topstories.rss"){   
-    cnn.array.push(score)
-    }
-    
+    $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>");  
 });

@@ -1,28 +1,28 @@
-var cnnScores = [];
-var bbcScores = [];
-var foxScores = [];
-var wapScores = [];
-var sagScores = [];
-var tgnScores = [];
-var reuScores = [];
-var rumScores = [];
-var ftuScores = [];
-var eccScores = [];
-var teeScores = [];
 var nytScores = [];
 var wapScores = [];
+var tgnScores = [];
+var bbcScores = [];
+var teeScores = [];
+var sagScores = [];
+var foxScores = [];
+var cnnScores = [];
+var eccScores = [];
+var ftuScores = [];
+var rtuScores = [];
+var rumScores = [];
+
 var nytScoreChart = nytScores;
 var wapScoreChart = wapScores;
-var cnnScoreChart = cnnScores;
-var bbcScoreChart = bbcScores;
-var foxScoreChart = foxScores;
-var sagScoreChart = sagScores;
 var tgnScoreChart = tgnScores;
-var reuScoreChart = reuScores;
-var rumScoreChart = rumScores;
-var ftuScoreChart = ftuScores;
-var eccScoreChart = eccScores;
+var bbcScoreChart = bbcScores;
 var teeScoreChart = teeScores;
+var sagScoreChart = sagScores;
+var foxScoreChart = foxScores;
+var cnnScoreChart = cnnScores;
+var eccScoreChart = eccScores;
+var ftuScoreChart = ftuScores;
+var rtuScoreChart = rtuScores;
+var rumScoreChart = rumScores;
 
 database.ref().on("child_added", function(childSnapshot, prevChildKey){
     // Store everything into a variable.
@@ -63,10 +63,28 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     //nytScores.push(score);
     cnnScores.push(score)
     }
+    if (source === "http://www.economist.com/topics/chinese-economy/index.xml"){   
+    //nytScores.push(score);
+    eccScores.push(score)
+    }
+    if (source === "http://www.ft.com/rss/home/us"){   
+    //nytScores.push(score);
+    ftuScores.push(score)
+    }
+    if (source === "http://feeds.reuters.com/news"){   
+    //nytScores.push(score);
+    rtuScores.push(score)
+    }
+    if (source === "http://feeds.reuters.com/news/usmarkets"){   
+    //nytScores.push(score);
+    rumScores.push(score)
+    }
 });
+
 var data = {
-  series: [nytScoreChart,wapScoreChart,cnnScoreChart,bbcScoreChart,foxScoreChart,sagScoreChart,tgnScoreChart,teeScores]
+  series: [nytScoreChart,wapScoreChart,tgnScoreChart,bbcScoreChart,teeScores,sagScoreChart,foxScoreChart,cnnScoreChart,eccScoreChart,ftuScoreChart,rtuScoreChart,rumScoreChart]
 };
+
 // We are setting a few options for the chart and overriding the defaults
 var options = {
   width: '99%',

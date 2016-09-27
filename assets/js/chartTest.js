@@ -1,16 +1,16 @@
 $(function(){
 	var data = {
-		labels: ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6"],
+		labels: [],
 		datasets: [
 		{
-			label: "Reddit",
-			fillColor: "rgba(220,220,220,0.2)",
+		label: "New York Times",
+		fillColor: "rgba(220,220,220,0.2)",
             strokeColor: "rgba(220,220,220,1)",
             pointColor: "rgba(220,220,220,1)",
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: [.43, .56, .33, .44, .12, 1, -.5]
+            data: nytScoreChart
 		},
 		{
 			label: "WA Post",
