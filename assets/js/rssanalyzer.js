@@ -115,7 +115,7 @@ $('button').on('click', function() {
                 console.log(response);
                 if (response.status != 'ok') {
                     console.log('Not a valid URL');
-                    $('#warning').append('<p> Make sure http(s):// is included in your link and that you entered a valid RSS link</p>');
+                    $('#warning').html('<p> Make sure http(s):// is included in your link and that you entered a valid RSS link</p>');
                 }
                 var textAnalyzed = []
                 for (i = 0; i < response.items.length; i++){
