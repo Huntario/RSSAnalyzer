@@ -1,6 +1,18 @@
-PRESENTATION TOPICS
--RSS to JSON api
--Hewelett Packard E Sentiment Analysis API
+PRESENTATION TOPICS  
+-RSS to JSON api  
+-Hewelett Packard E Sentiment Analysis API  
+
+PRESENTATION GOALS  
+- 10 minute presentation.    
+Explain in detail:  
+- Your overall application’s concept
+- The motivation for its development
+- Your design process
+- The technologies you used (and briefly how they work)
+- A demonstration of its functionality
+- Directions for future development
+- Treat the presentation seriously!
+- Talking intelligently about tech > doing tech sometimes.  
 
 
 GOALS  
