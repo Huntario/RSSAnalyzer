@@ -15,6 +15,32 @@ var economistEurope = new buttons('The Economist Europe', 'http://www.economist.
 
 var buttons = [];
 buttons.push(cnn, bbc, fox, waPost, nyTimes, goodNews, gnn, reuters, usMarkets, ftMarkets, economistChina, economistEurope);
+
+var data = {
+    series:[cnn.array, bbc.array, fox.array, waPost.array, nyTimes.array, goodNews.array, gnn.array, reuters.array, usMarkets.array, ftMarkets.array, economistChina.array, economistEurope.array]
+}
+
+var options = {
+  width: '99%',
+  height: '400px',
+  showPoint: false,
+  lineSmooth: true,
+      high: 1,
+      low: -1,
+      scaleMinSpace: 0,
+      onlyInteger: false,
+      referenceValue: 0,
+  axisX: {
+    showGrid: false,
+    showLabel: true,
+    },
+  axisY: {
+    labelInterpolationFnc: function(value) {
+      return value;
+    }
+  }
+};
+
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyCd4MrgEUu_MTcIG3kx7ejoit_0nJLHK_Q",
@@ -26,12 +52,13 @@ var config = {
   firebase.initializeApp(config);
 var database = firebase.database();    
 
-// Fucntions
+// Functions
 
 // Button Constructor
-function buttons(name, link) {
+function buttons(name, link, array) {
     this.name = name;
     this.link = link;
+    this.array = [];
 }
 
 // For Loop that appends buttons to DIV Class buttons
@@ -91,8 +118,11 @@ function dbinsert (query){
     return false;
     };
 
-$(document).ready(function(){  
+$(document).ready(function(){ 
+
     displayButtons();
+
+    new Chartist.Line('.ct-chart', data, options);
 
 // $('table.highchart').highchartTable(); 
 
@@ -112,6 +142,10 @@ $('button').on('click', function() {
         var queryURL = "http://rss2json.com/api.json?rss_url=" + rsslink;
         $('#submit').removeData();
         $('h4').empty();
+        console.log(this.id);
+        if (this.id === '0') {
+            cnn.array.push(score);
+        }
         $.ajax({
                 url: queryURL,
                 method: 'GET'
@@ -150,6 +184,39 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     // Add into the table
     $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>");
 
+    if (source === "http://rss.nytimes.com/services/xml/rss/nyt/World.xml"){   
+    //nytScores.push(score);
+    cnn.array.push(score)
+    }
+    if (source === "http://feeds.washingtonpost.com/rss/world"){   
+    //nytScores.push(score);
+    waPost.array.push(score)
+    }
+    if (source === "http://www.goodnewsnetwork.org/feed/"){   
+    //nytScores.push(score);
+    gnn.array.push(score)
+    }
+    if (source === "http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk"){   
+    //nytScores.push(score);
+    bbc.array.push(score)
+    }
+    if (source === "http://www.economist.com/sections/europe/rss.xml"){   
+    //nytScores.push(score);
+    economistEurope.array.push(score)
+    }
+    if (source === "http://feeds.feedburner.com/SAGoodNews?format=xml"){   
+    //nytScores.push(score);
+    goodNews.array.push(score)
+    }
+    if (source === "http://feeds.foxnews.com/foxnews/latest"){   
+    //nytScores.push(score);
+    fox.array.push(score)
+    }
+    if (source === "http://rss.cnn.com/rss/cnn_topstories.rss"){   
+    //nytScores.push(score);
+    cnn.array.push(score)
+    }
+    
 });
 
 // $(function() {
