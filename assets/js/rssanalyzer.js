@@ -1,5 +1,20 @@
 
 // Variables
+var cnn = new buttons('CNN', 'http://rss.cnn.com/rss/cnn_topstories.rss');
+var bbc = new buttons('BBC', 'http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk');
+var fox = new buttons('FOX', 'http://feeds.foxnews.com/foxnews/latest');
+var waPost = new buttons('WA Post', 'http://feeds.washingtonpost.com/rss/world');
+var nyTimes = new buttons('NY Times', 'http://rss.nytimes.com/services/xml/rss/nyt/World.xml');
+var goodNews = new buttons('SA The Good News', 'http://feeds.feedburner.com/SAGoodNews?format=xml');
+var gnn = new buttons('The Good News Network', 'http://www.goodnewsnetwork.org/feed/');
+var reuters = new buttons('Reuters', 'http://feeds.reuters.com/Reuters/worldNews');
+var usMarkets = new buttons('Reuters US Markets', 'http://feeds.reuters.com/news/usmarkets');
+var ftMarkets = new buttons('FT US Markets', 'http://www.ft.com/rss/home/us');
+var economistChina = new buttons('The Economist China', 'http://www.economist.com/topics/chinese-economy/index.xml');
+var economistEurope = new buttons('The Economist Europe', 'http://www.economist.com/sections/europe/rss.xml');
+
+var buttons = [];
+buttons.push(cnn, bbc, fox, waPost, nyTimes, goodNews, gnn, reuters, usMarkets, ftMarkets, economistChina, economistEurope);
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyCd4MrgEUu_MTcIG3kx7ejoit_0nJLHK_Q",
@@ -9,11 +24,39 @@ var config = {
     messagingSenderId: "770518406701"
   };
   firebase.initializeApp(config);
-var database = firebase.database();
-
-    
+var database = firebase.database();    
 
 // Fucntions
+
+// Button Constructor
+function buttons(name, link) {
+    this.name = name;
+    this.link = link;
+}
+
+// For Loop that appends buttons to DIV Class buttons
+function displayButtons() {
+
+    function buttonAttributes() {
+        b.attr('id', i);
+        b.attr('data-link', buttons[i].link);
+        b.addClass('btn btn-deep-purple btn-lg col-lg-3');
+        b.text(buttons[i].name);
+    }
+    // for (var i = 0; i < buttons.length; i++) {
+    //     var b = $('<button>');
+    //     buttonAttributes();
+    //     $('.buttons').append(b);
+    // }
+
+    for (var i = 0; i < buttons.length; i++) {
+        var id = i;
+        var b = $('<button>');
+        buttonAttributes();
+        $('#' + id).append(b);  
+    }
+}
+    
 function analysis(analyzed, link) {
         //var titleText = l.split(' ').join('+');
         var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=http%3A%2F%2F" + analyzed + "&apikey=ba67a893-398a-4cdb-ac52-57764039436f";
@@ -35,9 +78,11 @@ function analysis(analyzed, link) {
                     console.log(response);
                 console.log("query url " + queryURL);
                 console.log("analyzed" + analyzed);
+                console.log(query);
                 dbinsert(query)
                 })
         };
+
 function dbinsert (query){
     database.ref().push({
         query: query
@@ -46,7 +91,12 @@ function dbinsert (query){
     return false;
     };
 
-    
+$(document).ready(function(){  
+    displayButtons();
+
+// $('table.highchart').highchartTable(); 
+
+// $(window).load(initializeChart);
 // Main
 $('.btn btn-primary').on('click', function () {
     console.log('HERE IS ' + this);
@@ -86,7 +136,9 @@ $('button').on('click', function() {
                 console.log("text analyzed " + textAnalyzed);
                 
                 })
+            $('table.highchart').highchartTable(); 
         });
+});
 
 //Get data from database to show last 10 analysees
 database.ref().on("child_added", function(childSnapshot, prevChildKey){
@@ -99,4 +151,27 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>");
 
 });
+
+// $(function() {
+//     $('highchart-container').highcharts({
+//         chart: {
+//             type: 'line'
+//         },
+//         title: {
+//             text: 'test'
+//         },
+//         xAxis: {
+//             categories: ['Time']
+//         },
+//         yAxis: {
+//             title: {
+//                 text: 'Sentiment'
+//             }
+//         },
+//         series: [{
+//             name: 'button id1',
+//             data: [1,2,3,4,5]
+//         }]
+//     });
+// });
 
