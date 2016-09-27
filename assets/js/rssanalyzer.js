@@ -12,7 +12,6 @@ var usMarkets = new buttons('Reuters US Markets', 'http://feeds.reuters.com/news
 var ftMarkets = new buttons('FT US Markets', 'http://www.ft.com/rss/home/us');
 var economistChina = new buttons('The Economist China', 'http://www.economist.com/topics/chinese-economy/index.xml');
 var economistEurope = new buttons('The Economist Europe', 'http://www.economist.com/sections/europe/rss.xml');
-
 var buttons = [];
 buttons.push(cnn, bbc, fox, waPost, nyTimes, goodNews, gnn, reuters, usMarkets, ftMarkets, economistChina, economistEurope);
 
@@ -77,7 +76,7 @@ function displayButtons() {
         $('#setNewsButtons').append(b);  
     }
 }
-    
+  
 function analysis(analyzed, link) {
         //var titleText = l.split(' ').join('+');
         var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=http%3A%2F%2F" + analyzed + "&apikey=ba67a893-398a-4cdb-ac52-57764039436f";
@@ -97,9 +96,10 @@ function analysis(analyzed, link) {
                     time: moment().format('YYYY-MM-DD h:mm:ss a'),    
                     };
                     console.log(response);
-                console.log("query url " + queryURL);
-                console.log("analyzed" + analyzed);
-                console.log(query);
+                console.log("query.time");
+                console.log(query.time);
+
+                //if (query.time = )
                 dbinsert(query)
                 })
         };
@@ -168,5 +168,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     var source = childSnapshot.val().query.source;
     var time = childSnapshot.val().query.time;
     // Add into the table
-    $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>");  
+    $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>"); 
+    updateData(source);
+
 });
