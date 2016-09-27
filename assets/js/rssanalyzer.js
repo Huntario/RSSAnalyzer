@@ -15,31 +15,6 @@ var economistEurope = new buttons('The Economist Europe', 'http://www.economist.
 var buttons = [];
 buttons.push(cnn, bbc, fox, waPost, nyTimes, goodNews, gnn, reuters, usMarkets, ftMarkets, economistChina, economistEurope);
 
-var data = {
-    series:[cnn.array, bbc.array, fox.array, waPost.array, nyTimes.array, goodNews.array, gnn.array, reuters.array, usMarkets.array, ftMarkets.array, economistChina.array, economistEurope.array]
-}
-
-var options = {
-  width: '99%',
-  height: '400px',
-  showPoint: false,
-  lineSmooth: true,
-      high: 1,
-      low: -1,
-      scaleMinSpace: 0,
-      onlyInteger: false,
-      referenceValue: 0,
-  axisX: {
-    showGrid: false,
-    showLabel: true,
-    },
-  axisY: {
-    labelInterpolationFnc: function(value) {
-      return value;
-    }
-  }
-};
-
 // Initialize Firebase
 var config = {
     apiKey: "AIzaSyCd4MrgEUu_MTcIG3kx7ejoit_0nJLHK_Q",
@@ -114,9 +89,8 @@ function dbinsert (query){
 
 $(document).ready(function(){ 
 
-    displayButtons();
+displayButtons();
 
-    new Chartist.Line('.ct-chart', data, options); 
 // Main
 $('.btn btn-primary').on('click', function () {
     console.log('HERE IS ' + this);
@@ -141,7 +115,7 @@ $('button').on('click', function() {
                 console.log(response);
                 if (response.status != 'ok') {
                     console.log('Not a valid URL');
-                    $('h4').append('Make sure http(s):// is included in your link and that you entered a valid RSS link');
+                    $('#warning').append('<p> Make sure http(s):// is included in your link and that you entered a valid RSS link</p>');
                 }
                 var textAnalyzed = []
                 for (i = 0; i < response.items.length; i++){
@@ -169,6 +143,4 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey){
     var time = childSnapshot.val().query.time;
     // Add into the table
     $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>"); 
-    updateData(source);
-
 });
