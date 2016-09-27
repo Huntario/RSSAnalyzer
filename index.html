@@ -2,21 +2,22 @@
 <html>
 <head>
   <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
+  <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
   <script src="https://cdn.jsdelivr.net/momentjs/2.15.0/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/momentjs/2.15.0/locales.min.js"></script>
-  <title>RSS Analyzer</title>
-  <meta charset="utf-8">
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="./assets/css/tonieStyle.css">
+	<title>RSS Analyzer</title>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="./assets/css/charts.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/chartist-plugin-tooltip.css">
   <link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/tonieStyle.css">
 </head>
 <body>
-	<!-- holds all content -->
+	<!-- jumbotron -->
 	<div class="jumbotron">
     <div class="container">
       <h1 class="text-center" id="jumbo1">RSS Sentiment Analyzer</h1>
@@ -26,9 +27,7 @@
    <!-- News buttons -->
 
   <div class="container">
-  <div class="row container">
   <div class="btn-group" id="setNewsButtons">
-  </div>
    </div>
 
   <div class="container">
