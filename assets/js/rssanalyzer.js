@@ -40,7 +40,7 @@ function displayButtons() {
     function buttonAttributes() {
         b.attr('id', i);
         b.attr('data-link', buttons[i].link);
-        b.addClass('btn btn-deep-purple btn-lg col-lg-3');
+        b.addClass('col-md-3 col-sm-6 col-xs-12 btn btn-lg btn-deep-purple');
         b.text(buttons[i].name);
     }
     // for (var i = 0; i < buttons.length; i++) {
