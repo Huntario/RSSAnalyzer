@@ -1,7 +1,7 @@
 AGENDA
-1. organize presentation
-2. add area to show warnings/results of queries
-3. fix graph issue    
+1. organize presentation  
+2. add area to show warnings/results of queries  
+3. fix graph issue      
 4. prevent duplicate queries  
 5. more detailed warnings   
 6. clean up code  
@@ -40,7 +40,7 @@ Each point should avg 1min 45 seconds
 ---5B show score  
 ---5C show validation (http and if feed is live)
 ---5D show table and graph  
-  
+
 -06 Directions for future development   
 ---6A Compare to outside datapoints (compare stock prices to pos/neg of news outlets)  
 
