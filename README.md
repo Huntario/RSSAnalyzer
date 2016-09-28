@@ -1,26 +1,58 @@
+AGENDA
+1. organize presentation
+2. add area to show warnings/results of queries
+3. fix graph issue    
+4. prevent duplicate queries  
+5. more detailed warnings   
+6. clean up code  
+
+
 PRESENTATION GOALS  
+10 minutes in total
 Explain each in detail
-Each point should be 1min 45 seconds  
+Each point should avg 1min 45 seconds 
+(Doesn't have to be in this order)
+
 -01 Overall application’s concept  
+---1A Take headlines from the news and analyze them for sentiment (positive/negative emotion)
+
 -02 The motivation for its development  
--03 design process  
--04 The technologies you used (and briefly how they work)  
----4A RSS to JSON api    
----4B Hewelett Packard E Sentiment Analysis API    
+---2A Compare the outlook of news sources    
+---2B Let readers know what they're reading    
+
+-03 The technologies you used (and briefly how they work)  
+---3A Explain RSS    
+---3B RSS to JSON api  
+---3C Hewelett Packard E Sentiment Analysis API   
+---3D Chartist  
+
+-04 design process    
+---4A Started with bootstrap + material custom library  
+---4B Take RSS link -- pass to RSStoJASON  
+---4C Take returned JSON -- push headlines into an array  
+---4D Pass in array of headlines -- return setniment analysis  
+---4E Pos sentences, neg, sentences, overal score  
+---4F Store object in database w/ source, sentiment score, time, text analyzed (array of headlines)  
+---4G Display scores on table and graph  
+
 -05 A demonstration of its functionality  
+---5A show buttons  
+---5B show score  
+---5C show validation (http and if feed is live)
+---5D show table and graph  
+  
 -06 Directions for future development   
+---6A Compare to outside datapoints (compare stock prices to pos/neg of news outlets)  
 
 TIPS
-- Needs to be around 10 minutes
-- Treat the presentation seriously!
 - Talking intelligently about tech > doing tech sometimes.  
 
 
 GOALS  
 X - 01.Must uses at least two APIs  
 X - 02.Must use AJAX to pull data  
-X - 03.Must utilize new library or tech that we haven’t discussed  
-(GRAPH APPEARING ISSUE) 04.Must have a polished frontend / UI  
+X - 03.Must utilize new library or tech that we haven’t discussed    
+04.Must have a polished frontend / UI (GRAPH APPEARING ONLY AFTER RESIZE)   
 X - 05.coding standards (indentation, scoping, naming)  
 X - 06.Must NOT use alerts, confirms, or prompts (look into modals!)     
 X - 07.Must have some sort of repeating element (table, columns, etc)  
@@ -31,14 +63,6 @@ Bonus
 X - 11.Firebase/ Persistent Data Storage(basically a requirement).    
 x - 12.Mobile Responsive    
 X - 13.Use an alternative CSS framework like Material    
-
-
-AGENDA     
-1. fix graph issue  
-2. clean up code  
-
-EXTRA  
-1. Make table sortable by colum.
 
 
 RSS to JSON URL
