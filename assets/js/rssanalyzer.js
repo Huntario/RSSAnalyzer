@@ -118,8 +118,7 @@ function dbinsert (query){
     // Don't refresh the page!
     return false;
     };
-
-    
+//PROGRAM 
 main()
 buttonAttributes();
 onButClick();
