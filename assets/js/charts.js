@@ -10,6 +10,30 @@ var eccScores = [];
 var ftuScores = [];
 var rtuScores = [];
 var rumScores = [];
+// Chartist chart options
+var data = {
+    series: [nytScores,wapScores,tgnScores,bbcScores,teeScores,sagScores,foxScores,cnnScores,eccScores,ftuScores,rtuScores,rumScores]
+    };
+var options = {
+  width: '99%',
+  height: '400px',
+  showPoint: false,
+  lineSmooth: true,
+	  high: 1,
+	  low: -1,
+	  scaleMinSpace: 0,
+	  onlyInteger: false,
+	  referenceValue: 0,
+  axisX: {
+    showGrid: false,
+    showLabel: true,
+    },
+  axisY: {
+    labelInterpolationFnc: function(value) {
+      return value;
+    }
+  }
+    };
 
 function tallyScores(source, score) {
     switch(source) {
@@ -52,28 +76,5 @@ function tallyScores(source, score) {
         break;  
     }
     };
-// We are setting a few options for the chart and overriding the defaults
-var data = {
-    series: [nytScores,wapScores,tgnScores,bbcScores,teeScores,sagScores,foxScores,cnnScores,eccScores,ftuScores,rtuScores,rumScores]
-    };
-var options = {
-  width: '99%',
-  height: '400px',
-  showPoint: false,
-  lineSmooth: true,
-	  high: 1,
-	  low: -1,
-	  scaleMinSpace: 0,
-	  onlyInteger: false,
-	  referenceValue: 0,
-  axisX: {
-    showGrid: false,
-    showLabel: true,
-    },
-  axisY: {
-    labelInterpolationFnc: function(value) {
-      return value;
-    }
-  }
-    };
+
 new Chartist.Line('.ct-chart', data, options);

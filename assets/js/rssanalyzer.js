@@ -1,5 +1,4 @@
-
-// Variables
+//VARIABLES  
     var cnn = new buttons('CNN', 'http://rss.cnn.com/rss/cnn_topstories.rss');
     var bbc = new buttons('BBC', 'http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk');
     var fox = new buttons('FOX', 'http://feeds.foxnews.com/foxnews/latest');
@@ -14,7 +13,7 @@
     var economistEurope = new buttons('The Economist Europe', 'http://www.economist.com/sections/europe/rss.xml');
     var buttons = [];
     buttons.push(cnn, bbc, fox, waPost, nyTimes, goodNews, gnn, reuters, usMarkets, ftMarkets, economistChina, economistEurope);
-// Initialize Firebase
+    // Initialize Firebase
     var config = {
         apiKey: "AIzaSyCd4MrgEUu_MTcIG3kx7ejoit_0nJLHK_Q",
         authDomain: "rssanalyzer-cc4f1.firebaseapp.com",
@@ -23,16 +22,29 @@
         messagingSenderId: "770518406701"
       };
       firebase.initializeApp(config);
-    var database = firebase.database();    
-// Functions
-// --Button Constructor
-function buttons(name, link, array) {
+    var database = firebase.database(); 
+//FUNCTIONS
+function buttons(name, link, array){
     this.name = name;
     this.link = link;
     this.array = [];
-    }
-// --For Loop that appends buttons to DIV Class buttons
-function buttonAttributes() {
+    }    
+function main(){
+    $(document).ready(function(){ 
+        //Get data from database to show last 10 analysees
+        database.ref().on("child_added", function(childSnapshot, prevChildKey){
+            // Store everything into a variable.
+            var score = childSnapshot.val().query.score;
+            var sentiment = childSnapshot.val().query.sentiment;
+            var source = childSnapshot.val().query.source;
+            var time = childSnapshot.val().query.time;
+            // Add into the table
+            $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>"); 
+            tallyScores(source, score)
+        });
+        
+        });} 
+function buttonAttributes(){
     for (var i = 0; i < buttons.length; i++) {
         var b = $('<button>');
         b.attr('id', i);
@@ -41,7 +53,44 @@ function buttonAttributes() {
         b.text(buttons[i].name);
         $('#setNewsButtons').append(b);   
     }};
-function analysis(analyzed, link) {
+function onButClick(){
+     $('button').on('click', function() {
+        var userInput = $('#urlInput').val().trim()
+        $('#submit').attr('data-link', userInput);
+        var rsslink = $(this).data('link');
+        var queryURL = "http://rss2json.com/api.json?rss_url=" + rsslink;
+        $('#submit').removeData();
+        $('h4').empty();
+        $.ajax({
+                url: queryURL,
+                method: 'GET'
+            })
+            .done(function(response) {
+                console.log(response)
+                urlWarning(response)
+                var textAnalyzed = []
+                titleCleaner(response,textAnalyzed)
+                analysis(textAnalyzed,rsslink)      
+                }) 
+        });}
+function urlWarning(response){
+    if (response.status != 'ok') {
+                    console.log('Not a valid URL');
+                    $('#warning').html('<p> Make sure http(s):// is included in your link and that you entered a valid RSS link</p>');
+                }
+    }
+function titleCleaner(response,textAnalyzed){
+    for (i = 0; i < response.items.length; i++){
+        var l = response.items[i].title
+        //strip out "&" , Q&amp" ,or "#038" from analysis. It breaks the api (looks for key)
+        l = l.replace('Q&amp;','');
+        l = l.replace('#038;','');
+        l = l.replace('&','');
+        l = l.replace('#','');
+        textAnalyzed.push(l)
+        }
+    }
+function analysis(analyzed, link){
         //var titleText = l.split(' ').join('+');
         var queryURL = "https://api.havenondemand.com/1/api/sync/analyzesentiment/v1?text=http%3A%2F%2F" + analyzed + "&apikey=ba67a893-398a-4cdb-ac52-57764039436f";
         $.ajax({
@@ -58,11 +107,7 @@ function analysis(analyzed, link) {
                 sentiment: response.aggregate.sentiment,
                 time: moment().format('YYYY-MM-DD h:mm:ss a'),    
                 };
-                console.log(response);
-            console.log("query.time");
-            console.log(query.time);
-
-            //if (query.time = )
+            console.log(response);
             dbinsert(query)
             })
         };
@@ -73,52 +118,8 @@ function dbinsert (query){
     // Don't refresh the page!
     return false;
     };
-// Main
-$(document).ready(function(){ 
-    //Get data from database to show last 10 analysees
-    database.ref().on("child_added", function(childSnapshot, prevChildKey){
-        // Store everything into a variable.
-        var score = childSnapshot.val().query.score;
-        var sentiment = childSnapshot.val().query.sentiment;
-        var source = childSnapshot.val().query.source;
-        var time = childSnapshot.val().query.time;
-        // Add into the table
-        $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>"); 
-        tallyScores(source, score)
-    });
 
-    buttonAttributes();
-    //RSS TO JSON, then send to SentimentAPI, 
-    //then create object for query 
-    //and add to databse
-    $('button').on('click', function() {
-            var userInput = $('#urlInput').val().trim()
-            $('#submit').attr('data-link', userInput);
-            var rsslink = $(this).data('link');
-            var queryURL = "http://rss2json.com/api.json?rss_url=" + rsslink;
-            $('#submit').removeData();
-            $('h4').empty();
-            $.ajax({
-                    url: queryURL,
-                    method: 'GET'
-                })
-                .done(function(response) {
-                    if (response.status != 'ok') {
-                        console.log('Not a valid URL');
-                        $('#warning').html('<p> Make sure http(s):// is included in your link and that you entered a valid RSS link</p>');
-                    }
-                    var textAnalyzed = []
-                    for (i = 0; i < response.items.length; i++){
-                        var l = response.items[i].title
-                        //strip out "&" , Q&amp" ,or "#038" from analysis. It breaks the api (looks for key)
-                        l = l.replace('Q&amp;','');
-                        l = l.replace('#038;','');
-                        l = l.replace('&','');
-                        l = l.replace('#','');
-                        textAnalyzed.push(l)
-                    }
-                    analysis(textAnalyzed, rsslink);      
-                    }) 
-            });
-});
-
+    
+main()
+buttonAttributes();
+onButClick();
