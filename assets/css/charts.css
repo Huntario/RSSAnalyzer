@@ -1,5 +1,18 @@
 .ct-chart{
-
-
-
 }
+
+#453d3f{
+
+	color: #453d3f,
+	style: bold;
+}
+
+/* basic positioning */
+.legend { list-style: none; z-index:15; padding-bottom:5%;}
+.legend li { float: left; margin-right: 0px; }
+.legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
+/* your colors */
+.legend .superawesome { background-color: #ff00ff; }
+.legend .awesome { background-color: #00ffff; }
+.legend .kindaawesome { background-color: #0000ff; }
+.legend .notawesome { background-color: #000000; }
