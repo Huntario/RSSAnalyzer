@@ -21,19 +21,19 @@ Explain each in detail
 -03 front-end design process - Tonie  
 ---3A Started with bootstrap + custom CSS framework for buttons/search
 
--04 A demonstration of its functionality - Tonie  
+-04 A demonstration of its functionality - Tonie   
 ---4A show buttons  
 ---4B show score  
 ---4C show validation (http and if feed is live)
 ---4D show table and graph    
 
--05 The technologies you used (and briefly how they work) - Hunter 
+-05 The technologies you used (and briefly how they work) - Hunter     
 ---5A Explain RSS    
 ---5B RSS to JSON api  
 ---5C Hewelett Packard E Sentiment Analysis API   
 ---5D Chartist  
 
--06 design process - Hunter
+-06 design process - Hunter  
 ---6A Take RSS link -- pass to RSStoJASON  
 ---6B Take returned JSON -- push headlines into an array  
 ---6C Pass in array of headlines -- return setniment analysis  
@@ -41,7 +41,7 @@ Explain each in detail
 ---6E Store object in database w/ source, sentiment score, time, text analyzed (array of headlines)  
 ---6F Display scores on table and graph
 
--07 Directions for future development - Jason 
+-07 Directions for future development - Jason    
 ---7A Compare to outside datapoints (compare stock prices to pos/neg of news outlets, integrate IBM Watson API)  
 
 GOALS  
