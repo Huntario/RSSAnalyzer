@@ -11,29 +11,29 @@ PRESENTATION GOALS
 10 minutes in total
 Explain each in detail
 
--01 Overall application’s concept - Jason  
+-01 Overall App Concept - Jason  
 ---1A Take headlines from the news and analyze them for sentiment (positive/negative emotion)
 
--02 The motivation for its development  - Jason  
+-02 Motivation for Development  - Jason  
 ---2A Compare the outlook of news sources    
 ---2B Let readers know what they're reading  
 
--03 front-end design process - Tonie  
+-03 Front-end Design Process - Tonie  
 ---3A Started with bootstrap + custom CSS framework for buttons/search
 
--04 A demonstration of its functionality - Tonie   
+-04 Demonstration - Tonie   
 ---4A show buttons  
 ---4B show score  
 ---4C show validation (http and if feed is live)
 ---4D show table and graph    
 
--05 The technologies you used (and briefly how they work) - Hunter     
+-05 Technologies Used - Hunter     
 ---5A Explain RSS    
 ---5B RSS to JSON api  
 ---5C Hewelett Packard E Sentiment Analysis API   
 ---5D Chartist  
 
--06 design process - Hunter  
+-06 App Design Process - Hunter  
 ---6A Take RSS link -- pass to RSStoJASON  
 ---6B Take returned JSON -- push headlines into an array  
 ---6C Pass in array of headlines -- return setniment analysis  
@@ -41,7 +41,7 @@ Explain each in detail
 ---6E Store object in database w/ source, sentiment score, time, text analyzed (array of headlines)  
 ---6F Display scores on table and graph
 
--07 Directions for future development - Jason    
+-07 Directions for Future Development - Jason    
 ---7A Compare to outside datapoints (compare stock prices to pos/neg of news outlets, integrate IBM Watson API)  
 
 GOALS  
