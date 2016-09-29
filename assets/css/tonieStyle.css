@@ -64,3 +64,8 @@ padding-top: 1.5%;
 #warnbox{
 background-color: white;
 }
+
+.form-control::-webkit-input-placeholder { color: white; }
+.form-control:-moz-placeholder { color: white; }
+.form-control::-moz-placeholder { color: white; }
+.form-control:-ms-input-placeholder { color: white; }
