@@ -57,7 +57,9 @@ body{
 
 
 #warning{
-color: white;
+color: black;
+font-weight: bold;
+text-align: center;
 padding-top: 1.5%;
 }
 
