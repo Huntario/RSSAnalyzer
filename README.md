@@ -13,35 +13,37 @@ Explain each in detail
 Each point should avg 1min 45 seconds 
 (Doesn't have to be in this order)
 
--01 Overall application’s concept  
+-01 Overall application’s concept - Jason
 ---1A Take headlines from the news and analyze them for sentiment (positive/negative emotion)
 
--02 The motivation for its development  
+-02 The motivation for its development  - Jason
 ---2A Compare the outlook of news sources    
----2B Let readers know what they're reading    
+---2B Let readers know what they're reading  
 
--03 The technologies you used (and briefly how they work)  
+-03 front-end design process - Tonie
+---4A Started with bootstrap + material custom library  
+
+-04 A demonstration of its functionality - Tonie 
+---5A show buttons  
+---5B show score  
+---5C show validation (http and if feed is live)
+---5D show table and graph    
+
+-03 The technologies you used (and briefly how they work) - Hunter 
 ---3A Explain RSS    
 ---3B RSS to JSON api  
 ---3C Hewelett Packard E Sentiment Analysis API   
 ---3D Chartist  
 
 -04 design process    
----4A Started with bootstrap + material custom library  
 ---4B Take RSS link -- pass to RSStoJASON  
 ---4C Take returned JSON -- push headlines into an array  
 ---4D Pass in array of headlines -- return setniment analysis  
 ---4E Pos sentences, neg, sentences, overal score  
 ---4F Store object in database w/ source, sentiment score, time, text analyzed (array of headlines)  
----4G Display scores on table and graph  
+---4G Display scores on table and graph
 
--05 A demonstration of its functionality  
----5A show buttons  
----5B show score  
----5C show validation (http and if feed is live)
----5D show table and graph  
-
--06 Directions for future development   
+-07 Directions for future development   
 ---6A Compare to outside datapoints (compare stock prices to pos/neg of news outlets)  
 
 TIPS
