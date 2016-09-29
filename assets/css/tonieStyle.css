@@ -2,6 +2,16 @@
 	background-image: linear-gradient(45deg, #6a1b9a, #f9a825);
 }
 
+ul .legend{
+	background-color: white;
+}
+
+.container .leg{
+	background-color: white;
+	width:100%;
+	margin-left:0px;
+}
+
 .text-center{
 	color: #e8f5e9 !important;
 }

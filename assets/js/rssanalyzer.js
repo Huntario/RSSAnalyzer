@@ -42,7 +42,6 @@ function main(){
             $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>"); 
             tallyScores(source, score)
         });
-        
         });} 
 function buttonAttributes(){
     for (var i = 0; i < buttons.length; i++) {
