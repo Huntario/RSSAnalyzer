@@ -7,10 +7,10 @@
   <script src="https://cdn.jsdelivr.net/momentjs/2.15.0/moment.min.js"></script>
   <script src="https://cdn.jsdelivr.net/momentjs/2.15.0/locales.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<title>RSS Analyzer</title>
-	<meta charset="utf-8">
+  <title>RSS Analyzer</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="./assets/css/charts.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/chartist-plugin-tooltip.css">
   <link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
@@ -18,8 +18,8 @@
   <link rel="stylesheet" type="text/css" href="./assets/css/tonieStyle.css">
 </head>
 <body>
-	<!-- jumbotron -->
-	<div class="jumbotron">
+  <!-- jumbotron -->
+  <div class="jumbotron">
     <div class="container">
       <h1 class="text-center" id="jumbo1">RSS Sentiment Analyzer</h1>
       <p class="text-center" id="jumbo2">Analyze the sentiment of RSS News Feeds</p>
@@ -29,24 +29,34 @@
   <div class="container">
     <div class="btn-group" id="setNewsButtons">
   </div>
-  <div class="container">
-    	<form class="form-inline">
-      <div class="col-sm-6 col-xs-12">
-    		<div class="form-group">
-    			<label style="color: white" for="url">RSS Link</label>
-    			<input id="urlInput" type="url" pattern="https?://.+" required class="form-control"/> 
-    			<!-- below is the popup dialog when the button type is set to submit 
-    			oninvalid="setCustomValidity('Make sure http(s):// is included in your link and that you entered a valid RSS link')"
-    			-->
-    			<button id="submit"
-    			type="button" class="btn btn-primary btn-lg">Submit</button>
-    			<h4 style="color: white">
-    			</h4>
-    		</div>
-        </div>
-    	</form>
-        <div class="container col-sm-6 col-xs-12" id="warning"></div>
+  <!-- NEW user input -->
+  <div class="md-form input-group">
+    <input placeholder="RSS Link" id="urlInput" type="url" pattern="https?://.+" required class="form-control">
+    <span class="input-group-btn">
+      <button class="btn btn-primary btn-lg" id="submit" type="button">Go!</button>
+    </span>
   </div>
+  <div class="container col-sm-6 col-xs-12" id="warning"></div>
+
+
+  <!-- <div class="container">
+      <form class="form-inline">
+      <div class="col-sm-6 col-xs-12">
+        <div class="form-group">
+          <label style="color: white" for="url">RSS Link</label> -->
+          <!-- <input id="urlInput" type="url" pattern="https?://.+" required class="form-control"/>  -->
+          <!-- below is the popup dialog when the button type is set to submit 
+          oninvalid="setCustomValidity('Make sure http(s):// is included in your link and that you entered a valid RSS link')"
+         
+          <button id="submit"
+          type="button" class="btn btn-primary btn-lg">Submit</button>
+          <h4 style="color: white">
+          </h4>
+        </div>
+        </div>
+      </form>
+      <div class="container col-sm-6 col-xs-12" id="warning"></div>
+  </div> -->
   <!--Panel-->
   <div class="container">
   <div class="card" id="chart1">
