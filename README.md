@@ -10,43 +10,39 @@ AGENDA
 PRESENTATION GOALS  
 10 minutes in total
 Explain each in detail
-Each point should avg 1min 45 seconds 
-(Doesn't have to be in this order)
 
--01 Overall application’s concept  
+-01 Overall App Concept - Jason  
 ---1A Take headlines from the news and analyze them for sentiment (positive/negative emotion)
 
--02 The motivation for its development  
+-02 Motivation for Development  - Jason  
 ---2A Compare the outlook of news sources    
----2B Let readers know what they're reading    
+---2B Let readers know what they're reading  
 
--03 The technologies you used (and briefly how they work)  
----3A Explain RSS    
----3B RSS to JSON api  
----3C Hewelett Packard E Sentiment Analysis API   
----3D Chartist  
+-03 Front-end Design Process - Tonie  
+---3A Started with bootstrap + custom CSS framework for buttons/search
 
--04 design process    
----4A Started with bootstrap + material custom library  
----4B Take RSS link -- pass to RSStoJASON  
----4C Take returned JSON -- push headlines into an array  
----4D Pass in array of headlines -- return setniment analysis  
----4E Pos sentences, neg, sentences, overal score  
----4F Store object in database w/ source, sentiment score, time, text analyzed (array of headlines)  
----4G Display scores on table and graph  
+-04 Demonstration - Tonie   
+---4A show buttons  
+---4B show score  
+---4C show validation (http and if feed is live)
+---4D show table and graph    
 
--05 A demonstration of its functionality  
----5A show buttons  
----5B show score  
----5C show validation (http and if feed is live)
----5D show table and graph  
+-05 Technologies Used - Hunter     
+---5A Explain RSS    
+---5B RSS to JSON api  
+---5C Hewelett Packard E Sentiment Analysis API   
+---5D Chartist  
 
--06 Directions for future development   
----6A Compare to outside datapoints (compare stock prices to pos/neg of news outlets)  
+-06 App Design Process - Hunter  
+---6A Take RSS link -- pass to RSStoJASON  
+---6B Take returned JSON -- push headlines into an array  
+---6C Pass in array of headlines -- return setniment analysis  
+---6D Pos sentences, neg, sentences, overal score  
+---6E Store object in database w/ source, sentiment score, time, text analyzed (array of headlines)  
+---6F Display scores on table and graph
 
-TIPS
-- Talking intelligently about tech > doing tech sometimes.  
-
+-07 Directions for Future Development - Jason    
+---7A Compare to outside datapoints (compare stock prices to pos/neg of news outlets, integrate IBM Watson API)  
 
 GOALS  
 X - 01.Must uses at least two APIs  
