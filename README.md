@@ -11,17 +11,17 @@ PRESENTATION GOALS
 10 minutes in total
 Explain each in detail
 
--01 Overall application’s concept - Jason
+-01 Overall application’s concept - Jason  
 ---1A Take headlines from the news and analyze them for sentiment (positive/negative emotion)
 
--02 The motivation for its development  - Jason
+-02 The motivation for its development  - Jason  
 ---2A Compare the outlook of news sources    
 ---2B Let readers know what they're reading  
 
--03 front-end design process - Tonie
+-03 front-end design process - Tonie  
 ---3A Started with bootstrap + custom CSS framework for buttons/search
 
--04 A demonstration of its functionality - Tonie 
+-04 A demonstration of its functionality - Tonie  
 ---4A show buttons  
 ---4B show score  
 ---4C show validation (http and if feed is live)
