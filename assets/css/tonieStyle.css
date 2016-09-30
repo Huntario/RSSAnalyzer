@@ -31,6 +31,16 @@ body{
 .row{
 	margin-bottom: 0;
 }
+#source {
+
+	
+	 word-wrap: break-word;
+	 text-align: left;
+	 font-size: 1.75em;
+
+}
+
+
 
 .col-md-3,
 .col-sm-6,

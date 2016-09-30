@@ -97,7 +97,7 @@ function result(analyzed, query){
     sr.attr('id', 'source');
     sr.addClass('col-md-12 col-sm-12'); 
     $('#warning').append(sr);   
-    $('#source').html('<h1>Source: ' + query.source + '</h1>');
+    $('#source').html('<h2>Source: </h2><p>' + query.source + '</p>');
 
 
     var t = $('<div>');
