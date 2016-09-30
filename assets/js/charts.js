@@ -16,6 +16,7 @@ console.log(data);
 var data = {
     series: [nytScores,wapScores,tgnScores,bbcScores,teeScores,sagScores,foxScores,cnnScores,eccScores,ftuScores,rtuScores,rumScores],
     };
+    
 console.log(data);
 var options = {
   width: '99%',
