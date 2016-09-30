@@ -38,9 +38,9 @@ function main(){
             var sentiment = childSnapshot.val().query.sentiment;
             var source = childSnapshot.val().query.source;
             var time = childSnapshot.val().query.time;
+            tallyScores(source, score)
             // Add into the table
             $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>"); 
-            tallyScores(source, score)
         });
         });} 
 function buttonAttributes(){
@@ -75,6 +75,8 @@ function onButClick(){
 function urlWarning(response){
     if (response.status != 'ok') {
                     console.log('Not a valid URL');
+                    // if Too many requests. Please try again later
+                    // if response.status == 'error'{ $('#warning').html('<p> ' + response.errorMessage + '</p>'}
                     $('#warning').html('<p> Make sure http(s):// is included in your link and that you entered a valid RSS link</p>');
                 }
     }
