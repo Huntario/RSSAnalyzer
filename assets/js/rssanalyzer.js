@@ -145,9 +145,9 @@ function analysis(analyzed, link){
                 };
             console.log(response);
             result(analyzed, query)
-            dbinsert(query)
-            })
-        };
+            dbinsert(query);
+        });
+    };
 function dbinsert (query){
     database.ref().push({
         query: query
