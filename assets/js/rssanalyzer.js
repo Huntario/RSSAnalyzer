@@ -102,13 +102,13 @@ function result(analyzed, query){
 
     var t = $('<div>');
     t.attr('id', 'queryText');
-    t.addClass('col-md-5 col-sm-12'); 
+    t.addClass('col-md-12'); 
     $('#warning').append(t);   
     $('#queryText').html('<h2> Analyzed Text</h2><p>' + query.text + '</p>');
 
     var s = $('<div>');
     s.attr('id', 'score');
-    s.addClass('col-md-5 col-sm-12'); 
+    s.addClass('col-md-12'); 
     $('#warning').append(s);  
     $('#score').html('<h2> Sentiment Score</h2><h1>' + query.score + '</h1>');
         // '</div><p>' + query.source + '</p><p>' + query.sentiment + '</p><p>' + query.score + '</p><p>' + query + '</p>')
