@@ -67,6 +67,11 @@ padding-top: 1.5%;
 background-color: white;
 }
 
+#queryText{
+
+	text-align: justify;
+}
+
 .form-control::-webkit-input-placeholder { color: white; }
 .form-control:-moz-placeholder { color: white; }
 .form-control::-moz-placeholder { color: white; }
