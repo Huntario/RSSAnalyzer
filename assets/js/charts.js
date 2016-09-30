@@ -43,37 +43,36 @@ function tallyScores(source, score) {
     case "http://rss.nytimes.com/services/xml/rss/nyt/World.xml":
         nytScores.push(score)
         return nytScores;
-        break;
     case "http://feeds.washingtonpost.com/rss/world":
         wapScores.push(score)
-        break;
+        return wapScores
     case "http://www.goodnewsnetwork.org/feed/":
         tgnScores.push(score)
-        break;
+        return tgnScores 
     case "http://feeds.bbci.co.uk/news/world/rss.xml?edition=uk":
         bbcScores.push(score)
-        break;
+        return bbcScores
     case "http://www.economist.com/sections/europe/rss.xml":
         teeScores.push(score)
-        break;
+        return teeScores
     case "http://feeds.feedburner.com/SAGoodNews?format=xml":
         sagScores.push(score)
-        break;
+        return sagScores
     case "http://feeds.foxnews.com/foxnews/latest":
         foxScores.push(score)
-        break;
+        return foxScores
     case "http://rss.cnn.com/rss/cnn_topstories.rss":
         cnnScores.push(score)
-        break;  
+        return cnnScores
     case "http://www.economist.com/topics/chinese-economy/index.xml":
         eccScores.push(score)
-        break;
+        return eccScores
     case "http://www.ft.com/rss/home/us":
         ftuScores.push(score)
-        break;
+        return ftuScores
     case "http://feeds.reuters.com/news":
         rtuScores.push(score)
-        break;
+        return rtuScores
     case "http://feeds.reuters.com/news/usmarkets":
         rumScores.push(score)
         break;  

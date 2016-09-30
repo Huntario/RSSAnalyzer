@@ -38,9 +38,9 @@ function main(){
             var sentiment = childSnapshot.val().query.sentiment;
             var source = childSnapshot.val().query.source;
             var time = childSnapshot.val().query.time;
+            tallyScores(source, score)
             // Add into the table
             $("#queryTables > tbody").prepend("<tr><td>" + score + "</td><td>" + sentiment + "</td><td>" + source + "</td><td>" + time + "</td></tr>"); 
-            tallyScores(source, score)
         });
         });} 
 function buttonAttributes(){
@@ -73,11 +73,48 @@ function onButClick(){
                 }) 
         });}
 function urlWarning(response){
-    if (response.status != 'ok') {
-                    console.log('Not a valid URL');
-                    $('#warning').html('<p> Make sure http(s):// is included in your link and that you entered a valid RSS link</p>');
-                }
+
+    if (response.status == 'error'){ 
+        $('#warning').html('<p> ' + response.errorMessage + '</p>')
+        }
+
+    else if (response.status != 'ok') {
+        console.log('Not a valid URL');
+        // if Too many requests. Please try again later
+        // if response.status == 'error'{ $('#warning').html('<p> ' + response.errorMessage + '</p>'}
+        $('#warning').html('<p> Make sure you included http(s):// and that you entered a valid RSS link</p>');
+        }
+
+    if (response.status == 'ok'){         
+        $('#warning').empty();
     }
+
+    }
+
+function result(analyzed, query){
+
+    var sr = $('<div>');
+    sr.attr('id', 'source');
+    sr.addClass('col-md-12 col-sm-12'); 
+    $('#warning').append(sr);   
+    $('#source').html('<h1>Source: ' + query.source + '</h1>');
+
+
+    var t = $('<div>');
+    t.attr('id', 'queryText');
+    t.addClass('col-md-5 col-sm-12'); 
+    $('#warning').append(t);   
+    $('#queryText').html('<h2> Analyzed Text</h2><p>' + query.text + '</p>');
+
+    var s = $('<div>');
+    s.attr('id', 'score');
+    s.addClass('col-md-5 col-sm-12'); 
+    $('#warning').append(s);  
+    $('#score').html('<h2> Sentiment Score</h2><h1>' + query.score + '</h1>');
+        // '</div><p>' + query.source + '</p><p>' + query.sentiment + '</p><p>' + query.score + '</p><p>' + query + '</p>')
+}   
+
+
 function titleCleaner(response,textAnalyzed){
     for (i = 0; i < response.items.length; i++){
         var l = response.items[i].title
@@ -107,6 +144,7 @@ function analysis(analyzed, link){
                 time: moment().format('YYYY-MM-DD h:mm:ss a'),    
                 };
             console.log(response);
+            result(analyzed, query)
             dbinsert(query)
             })
         };

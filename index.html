@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
-  <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/momentjs/2.15.0/moment.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/momentjs/2.15.0/locales.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <title>RSS Analyzer</title>
   <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- our JS -->
+  <script src="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="./assets/css/charts.css">
-  <link rel="stylesheet" type="text/css" href="./assets/css/chartist-plugin-tooltip.css">
   <link rel="stylesheet" href="http://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.1.1/css/mdb.min.css">
   <link rel="stylesheet" type="text/css" href="./assets/css/tonieStyle.css">
@@ -38,7 +34,9 @@
   <div class="container">
   <div class="panel panel-default">
     <div class="panel-body">
-        <div class="container col-md-12 col-xs-12" id="warning"></div>
+        <div class="container col-md-12 col-xs-12" id="warning">
+            <p>Your Results will show here</p>
+        </div>
     </div>
   </div>
 </div>
@@ -87,11 +85,11 @@
   </div>
 </body>
   <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <!-- our JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.15.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.15.0/locales.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.4.0/firebase.js"></script>
   <script type="text/javascript" src="assets/js/rssanalyzer.js"></script>
   <script type="text/javascript" src="assets/js/charts.js"></script>
   <script type="text/javascript" src="assets/js/tonie.js"></script>
-  <script src="http://code.highcharttable.org/master/jquery.highchartTable-min.js"></script>
-  <script type="text/javascript" src="assets/js/chartist-plugin-tooltip.min.js"></script>
 </html>
